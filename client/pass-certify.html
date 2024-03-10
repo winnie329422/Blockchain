@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/pass-certify.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <!-- 下面為課程資訊與學員審核title用 -->
+    <link rel="stylesheet" type="text/css" href="assets/css/pass-certify.css">
+    <title>認證單位審查積分</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+    <!--header-->
+    <div id="header"></div>
+
+    <div>
+        Account:<span id="certiacc"></span>
+      </div>
+      <script>
+        const certiAccount = sessionStorage.getItem('certiacc');
+      
+        document.getElementById('certiacc').textContent = certiAccount;
+    
+      </script>
+
+    <div id="pass">
+        <!--搜尋引擎-->
+        <!-- <div class="search">
+            <input type="text">
+            <input type="submit" class="butinside" value="搜尋">
+            <input type="submit" class="butoutside" value="進階查詢"
+                onclick="document.getElementById('id02').style.display='block'">
+        </div> -->
+        <!--進階查詢介面-->
+        <div id="id02" class="modal">
+            <form class="modal-content animate" action="" method="post">
+                <fieldset class="data">
+                    <legend>
+                        <br><br>
+                        <h2>進階查詢</h2>
+                    </legend>
+                    <div class="box">
+                        <div class="form2">
+                            <h4>依是否通過課程查詢</h4>
+                            <input type="text" name="name" required class="con1">
+                        </div>
+                        <div class="form2">
+                            <h4>依課程查詢</h4>
+                            <input type="text" name="birthday" required class="con1">
+                        </div>
+                        <div class="form2">
+                            <h4>關鍵字查詢</h4>
+                            <input type="text" name="address" required class="con1">
+                        </div>
+                    </div>
+                    <div class="box">
+                        <button class="register-button" type="submit">註冊</button>
+                        <button class="register-button"
+                            onclick="document.getElementById('id02').style.display='none'">取消</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="pp">
+            <div class="classs">
+                <table class="ttable">
+                    <tbody id="allclass"></tbody>
+
+                </table>
+            </div>
+            <div class="passcon">
+                <h1 class="tt2">學員審核</h1>
+                <!--表格上排-->
+                <table border="1">
+                    <tr>
+                        <td class="first">
+                            學員名字
+                        </td>
+                        <td class="first">
+                            學員帳戶
+                        </td>
+                        <td class="first">
+                            帳號
+                        </td>
+                        <td class="first">
+                            開課單位審查結果
+                        </td>
+                        <td class="first">
+                            認證單位審查
+                        </td>
+                        <td class="first">
+                            認證單位審查結果
+                        </td>
+                    </tr>
+                       <tbody id="allclass2"></tbody>
+    
+                </table>
+            </div>
+        </div>
+    </div>
+        <!--footer-->
+        <div id="footer"></div>
+
+        <script>
+            $(function () {
+                $("#header").load("h2.html")
+                $("#footer").load("footer.html")
+            });
+        </script>
+    <!--Firebase-->
+<script type="module">
+    //import
+    import { initializeApp } from "firebase/app";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+    
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+                authDomain: "contactform-d7d05.firebaseapp.com",
+                databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+                projectId: "contactform-d7d05",
+                storageBucket: "contactform-d7d05.appspot.com",
+                messagingSenderId: "371807550240",
+                appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+            };
+    
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            import{
+                getFirestore, doc, getDoc, getDocs, collection, onSnapshot, updateDoc,setDoc,deleteDoc,where,query
+            }
+            from "firebase/firestore";
+    
+            const db = getFirestore();
+  
+  
+      const classname = localStorage.getItem('classname');
+            
+    async function storedata()
+    {
+        const ref = collection(db, "報名資料");
+        const q = query(ref,where('課程名稱','==',classname));
+        const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(function(element)
+    {
+      
+        document.querySelector('#allclass').innerHTML+=`
+        <tr>
+                        <td colspan="2">
+                            <h2 class="tt1">課程資料</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>單位:<span id="CourseClass">${element.data().開課單位}</span></h4>
+                        </td>
+                        <td>
+                            <h4>課程類別:<span id="CourseCategory">${element.data().課程類別}</span></h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>課程名稱:<span id="CourseName">${element.data().課程名稱}</span></h4>
+                        </td>
+                        <td>
+                            <h4>上課方式:線上</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>上課日期:<span id="CourseDate">${element.data().上課日期}</span></h4>
+                        </td>
+                        <td>
+                            <h4>積分數:<span id="CoursePoint">${element.data().積分數}</span></h4>
+                        </td>
+                    </tr>
+`      
+    });
+    };
+
+    async function storedata2()
+    {
+        const ref = collection(db, "報名資料");
+        const q = query(ref,where('課程名稱','==',classname));
+        const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(function(element)
+    {
+      
+        document.querySelector('#allclass2').innerHTML+=`
+        <tr>
+                        <td id="RealName">${element.data().姓名}</td>
+                        <td id="owner">${element.data().區塊鏈帳戶}</td>
+                        <td id="CourseId">${element.data().帳號}</td>
+                        <td>${element.data().是否通過}</td>
+                        <td>
+                            <!-- <div id="ClickTry2"><input type="submit" value="小卡" id="" ></div> -->
+                            <div id="ClickTry"><input type="submit" class="no" value="通過" id="${element.data().帳號}" name="send"></div>
+
+                            <input type="submit" value="不通過" class="no" onclick="document.getElementById('id03').style.display='block'" >
+                            <!--不通過原因-->
+                            <div id="id03" class="modal">
+                                
+                                    <fieldset class="data">
+                                        <div class="box">
+                                            <div class="form2">
+                                                <h4>不通過原因</h4>
+                                                <input class="con1" id="noreason"></input>
+                                            </div>
+                                        </div>
+                                        <div class="box">
+                                            <!--拿掉submit-->
+                                            <button class="register-button" id="${element.data().帳號}" name="send2">送出</button>
+                                            <button class="register-button"
+                                                onclick="document.getElementById('id03').style.display='none'">取消</button>
+                                        </div>
+                                    </fieldset>
+                               
+                            </div>
+                        </td>
+                        <td>${element.data().認證單位審查結果}</td>
+                    </tr>
+`      
+    });
+    const aaa = document.getElementsByName('send');
+
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        //localStorage
+        const Class = this.id+classname;//div
+
+        localStorage.setItem('classname',Class);
+        passclass();
+        //開課單位通過
+    async function passclass(){
+      var ref = doc(db,"報名資料", Class);
+
+      await updateDoc(
+          ref,{
+            認證單位審查結果:"已通過"           
+           }
+      )
+      .then(()=>{
+      alert("審查通過！");
+      window.location.reload();
+      })
+      .catch((error)=>{
+          alert("Unsuccessful operation, error"+error);
+      });
+  }
+      }     
+        
+    }
+    
+
+      
+
+        //不通過
+      let result = document.getElementById("noreason");
+      const bbb = document.getElementsByName('send2');
+
+        for (var i = 0 ; i < bbb.length; i++) {
+            bbb[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.id+classname);
+        //localStorage
+        const Class = this.id+classname;//div
+        console.log(Class);
+        
+        localStorage.setItem('classname',Class);
+        nopass();
+            // for (var i = 0 ; i < bbb.length; i++) {
+            // bbb[i].addEventListener('click' , nopass , false ) ; 
+            // }
+
+            // 開課單位不通過
+        async function nopass(){
+            var ref = doc(db,"報名資料", Class);
+
+            await updateDoc(
+                ref,{
+                認證單位審查結果:"不通過",
+                認證單位審查意見: result.value         
+                }
+            )
+            .then(()=>{
+            alert("審查不通過！");
+            window.location.reload();
+            })
+            .catch((error)=>{
+                alert("Unsuccessful operation, error"+error);
+            });
+        }
+        }
+
+        }
+        
+    };
+    
+    window.onload = function(){ storedata(); storedata2(); }
+  
+            
+  
+  
+  </script>
+  <!-- 區塊鏈的 開始-->
+<script type="module" src="passClass.js"></script>
+<!-- <script>
+    setTimeout("changeState()",3000 );  
+    function changeState(){  
+      var script = document.createElement('script');
+      script.type = "text/babel";
+      script.src = "passClass.js";
+      console.log(script);
+      document.getElementsByTagName('body')[0].appendChild(script); 
+    }  
+  </script> -->
+<!-- 區塊鏈的 結束-->
+</body>
+
+</html>

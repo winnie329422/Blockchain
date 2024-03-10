@@ -1,0 +1,70 @@
+.outsideB {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.detail {
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+  display: flex;
+}
+
+.RRow {
+  margin-top: 60px;
+}
+
+.outsideB {
+  width: 100%;
+  background-color: #ecefe8;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.back {
+  width: 70%;
+  background-color: #d3dee0;
+  border-radius: 10px;
+  margin-top: 50px;
+  padding: 50px;
+}
+
+.but {
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+}
+
+.botton1 {
+  margin: 40px;
+}
+
+.butt {
+  margin-right: 200px;
+}
+
+.ha {
+  align-items: left;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+}
+
+.userTitleSpan {
+  border-bottom: 5px solid #76c784;
+  margin-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 3px;
+}
+
+.ppp {
+  font-size: larger;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=openclass.8daeea5a.css.map */

@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>積分管家</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../client/assets/css/admin-openclassData.css">
+</head>
+
+<body>
+  <!-- 新增承辦人員 -->
+  <!-- Modal -->
+  <div class="modal modal-dialog-scrollable fade" id="NEWstaticBackdrop" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="NEWstaticBackdropLabel">新增承辦人員</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="">
+          <div class="modal-body">
+            <div class="addLine"><label>承辦人員姓名：</label>
+              <input class="FControl" type="text" required id="name1"></div>
+            <div class="addLine"><label>電子郵件：</label><input class="FControl" type="email" required id="mail1"/></div>
+            <div class="addLine"><label>職稱：</label><input class="FControl" type="text" required id="job1"/></div>
+            <div class="addLine"><label>電話：</label><input class="FControl" type="text" required id="tele1"/></div>
+            <div class="addLine"><label>帳號：</label><input class="FControl" type="text" required id="acc1"/></div>
+            <div class="addLine"><label>密碼：</label><input class="FControl" type="text" required id="pass1"/></div>
+          </div>
+          <div class="modal-footer">
+            <button class="addOCpersonBtn" id="setdata">確定</button>
+            <button class="addOCpersonBtn" id="update" >修改</button>
+            <button class="addOCpersonBtn" id="delete" >刪除</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 新增承辦人員END -->
+  <!-- 編輯承辦人員 -->
+  <!-- Modal -->
+  <!--<div class="modal modal-dialog-scrollable fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">編輯承辦人員</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="">
+          <div class="modal-body">
+            <div class="addLine" id="formname"><label>承辦人員姓名：</label>
+              <input class="FControl" type="text" required ></div>
+            <div class="addLine" id="formmail"><label>電子郵件：</label><input class="FControl" type="email" 
+                 required>
+            </div>
+            <div class="addLine" id="formtele"><label>電話：</label><input class="FControl" type="text" 
+                required></div>
+                <div class="addLine" id="formjob"><label>職稱：</label><input class="FControl" type="text"   required>
+                </div>
+
+            <div class="addLine" id="formaccount"><label>帳號：</label><input class="FControl" type="text"  required>
+            </div>
+            <div class="addLine" id="formpassword"><label>密碼：</label><input class="FControl" type="text"  required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="addOCpersonBtn" id="setdata">確定</button>
+            <button class="addOCpersonBtn" id="update" onclick="Upd()">修改</button>
+            <button class="addOCpersonBtn" id="delete" >刪除</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 編輯承辦人員END -->
+  <div id="header"></div>
+  <div>
+    Account:<span id="Accountback"></span>
+  </div>
+  <script>
+    const backacc = sessionStorage.getItem('Accountback');
+  
+    document.getElementById('Accountback').textContent = backacc;
+
+  </script>
+  <div class="container justify-content-center">
+    <!-- 開課單位資料 -->
+    <h4 class="adminTitle" id="openname"></h4>
+    <script>
+      const openname = localStorage.getItem('openname');
+
+      document.getElementById('openname').textContent=openname;
+    </script>
+    <div class="OCcontent">
+      <form action="">
+        <div class="row">
+          <div class="col-5">
+            <p>負責人：<input type="text" readonly="readonly" id="person" class="MM FControl" >
+            </p>
+            <p>縣市：<input type="text" readonly="readonly" id="country" class="MM FControl"></p>
+            <p>地址：<input type="text" readonly="readonly" id="address" class="MM FControl"></p>
+            <p>電話：<input type="text" readonly="readonly" id="phone" class="MM FControl">
+            </p>
+            <p>傳真：<input type="text" readonly="readonly" id="fax" class="MM FControl">
+            </p>
+            <p>電子郵件：<input type="email" readonly="readonly" id="email" class="MM FControl">
+            </p>
+            <p>備註：<input type="text" readonly="readonly" id="memo" class="MM FControl">
+            </p>
+          </div>
+          <div class="col-4">
+            <p>銀行代碼：<input type="text" readonly="readonly" id="num" class="MM FControl"></p>
+            <p>銀行帳號：<input type="text" readonly="readonly" id="bank" class="MM FControl"></p>
+          </div>
+          <div class="col-3">
+            <button id="ed" class="adminOpenClassEditBtn" type="button" onclick="edit()">編輯</button>
+            <button id="del" class="adminOpenClassDelBtn" type="button">停用</button>
+            <input id="submit" type="submit" value="儲存" >
+          </div>
+        </div>
+      </form>
+      <!-- 承辦人員資料 -->
+      <div class="row">
+        <div class="OCperson">
+          <p class="adminInsideTitle">承辦人員</p>
+          <button class="adddPerson"  data-bs-toggle="modal" data-bs-target="#NEWstaticBackdrop" onclick="FillTboxes(null)">新增</button>
+         
+
+        </div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead style="border: solid black 1px;">
+              <tr style="background-color: #FFBC1D;">
+                <th scope="col">項次</th>
+                <th scope="col">承辦人員</th>
+                <th scope="col">電子郵件</th>
+                <th scope="col">帳號</th>
+                <th scope="col">職稱</th>
+                <th scope="col">電話</th>
+                <th scope="col">密碼</th>
+                <th scope="col">編輯</th>
+              </tr>
+            </thead>
+            <tbody id="tbody1">
+              <tr>
+                <th scope="row"></th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+  <script>
+    $(function () {
+      $("#header").load("back.html")
+      $("#footer").load("footer.html")
+    });
+    // 編輯開課單位資料
+    function edit() {
+      $('.MM').css({
+        'border-width': '1px',
+        'padding': '0.375rem 2.25rem 0.375rem 0.75rem',
+        'border-radius': '0.375rem',
+      });
+      // $('.FControl').css({
+      //   'border-color': '#ced4da'
+      // });
+
+      // $('.M-password').css({
+      //   'display': 'flex'
+      // })
+      $('#submit').css({
+        'display': 'flex'
+      })
+      $('#ed').css({
+        'display': 'none'
+      })
+      $('#del').css({
+        'display': 'none'
+      })
+      $('#name').removeAttr("readonly");
+      $('#address').removeAttr("readonly");
+      $('#person').removeAttr("readonly");
+      $('#phone').removeAttr("readonly");
+      $('#fax').removeAttr("readonly");
+      $('#email').removeAttr("readonly");
+      $('#memo').removeAttr("readonly");
+      $('#num').removeAttr("readonly");
+      $('#bank').removeAttr("readonly");
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+
+  <!--Firebase-->
+  <script type="module">
+    //import
+    import { initializeApp } from "firebase/app";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+    
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+                authDomain: "contactform-d7d05.firebaseapp.com",
+                databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+                projectId: "contactform-d7d05",
+                storageBucket: "contactform-d7d05.appspot.com",
+                messagingSenderId: "371807550240",
+                appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+            };
+    
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            import{
+                getFirestore, doc, getDoc, getDocs, collection, onSnapshot, updateDoc,setDoc,deleteDoc,where,query
+            }
+            from "firebase/firestore";
+    
+            const db = getFirestore();
+ 
+
+            //開課單位編輯資料
+          let Name = document.getElementById("name");
+          let Person = document.getElementById("person");
+          let Phone = document.getElementById("phone");
+          let Fax = document.getElementById("fax");
+          let Address = document.getElementById("address");
+          let Country = document.getElementById("country");
+          let Email = document.getElementById("email");
+          let Num = document.getElementById("num");
+          let Bank = document.getElementById("bank");
+          let Memo = document.getElementById("memo");
+          let store = document.getElementById('submit');
+          let cancel = document.getElementById('del');
+          
+  const open = localStorage.getItem('openname');  
+
+  console.log(open);
+
+      //get剩下的值
+    async function getOpenData(){
+        var ref = doc(db,"申請中-開課單位資料", open);
+        const docSnap = await getDoc(ref);
+
+        if(docSnap.exists()){
+            Person.value = docSnap.data().負責人;
+            Phone.value = docSnap.data().聯絡電話;
+            Fax.value = docSnap.data().傳真;
+            Address.value = docSnap.data().地址;
+            Country.value = docSnap.data().縣市;
+            Email.value = docSnap.data().電子郵件;
+            Num.value = docSnap.data().銀行代碼;
+            Bank.value = docSnap.data().銀行帳號;
+            Memo.value = docSnap.data().備註;   
+        }
+        else{
+            alert("No such Document");
+        }
+      }
+
+      async function updateOpenData(){
+            var ref = doc(db,"申請中-開課單位資料", open);
+
+            await updateDoc(
+                ref,{
+                  負責人: Person.value,
+                  備註: Memo.value,
+                  傳真: Fax.value,
+                  縣市: Country.value,
+                  地址: Address.value,
+                  銀行代碼: Num.value,
+                  銀行帳號: Bank.value,
+                  電子郵件: Email.value,
+                  聯絡電話: Phone.value             
+                 }
+            )
+            .then(()=>{
+            alert("修改成功");
+            window.location.reload();
+            })
+            .catch((error)=>{
+                alert("Unsuccessful operation, error"+error);
+            });
+        }
+     
+        store.addEventListener("click",(e) =>{
+        e.preventDefault();
+        updateOpenData();
+      });
+
+      async function cancelOpenAccount(){
+            var ref = doc(db,"申請中-開課單位資料", open);
+
+            await updateDoc(
+                ref,{
+                  狀態:"停用"            
+                 }
+            )
+            .then(()=>{
+            alert("帳號已停用!!");
+            window.location.assign("openclass.html");
+            })
+            .catch((error)=>{
+                alert("Unsuccessful operation, error"+error);
+            });
+        }
+     
+        cancel.addEventListener("click",(e) =>{
+        e.preventDefault();
+        cancelOpenAccount();
+      });
+            
+    //filling the table
+            var stdNo = 0;
+            var tbody = document.getElementById('tbody1');
+            var stdList = [];
+    
+            function AddItemToTable(name, mail, account, job, phone, password){
+                let tr = document.createElement("tr");
+                let td1 = document.createElement("td");
+                let td2 = document.createElement("td");
+                let td3 = document.createElement("td");
+                let td4 = document.createElement("td");
+                let td5 = document.createElement("td");
+                let td6 = document.createElement("td");
+                let td7 = document.createElement("td");
+                let Control = document.createElement("td");
+
+                stdList.push([name, mail, account, job, phone, password]);
+
+    
+                td1.innerHTML= ++stdNo;
+                td2.innerHTML= "<td id='namebox'>"+name+"</td>";
+                td3.innerHTML= mail;
+                td4.innerHTML= account;
+                td5.innerHTML= job;
+                td6.innerHTML= phone;
+                td7.innerHTML= password;
+                Control.innerHTML= '<button class="adminOpenClassEditBtn my-2" data-bs-toggle="modal" data-bs-target="#NEWstaticBackdrop" onclick="FillTboxes('+stdNo+')">編輯</button>';
+
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                tr.appendChild(td6);
+                tr.appendChild(td7);
+                tr.appendChild(Control);
+    
+                tbody.appendChild(tr);
+            }
+    
+            function AddAllItemsToTable(TheStudent){
+                document.getElementById('tbody1').innerHTML="";
+                stdNo = 0;
+                TheStudent.forEach(element => {
+                    AddItemToTable(element.承辦人員名字, element.承辦人員email, element.帳號, element.職稱, element.申請人電話, element.密碼);
+                });
+            }
+
+            window.FillTboxes=(index)=>{
+            if(index==null){
+                name1.value = "";
+                mail1.value = "";
+                job1.value = "";
+                tele1.value = "";
+                acc1.value = "";
+                pass1.value = "";
+                SetBtn.style.display='inline-block';
+                UpBtn.style.display='none';
+                DelBtn.style.display='none';
+            }
+            else{
+                --index; 
+                name1.value = stdList[index][0];
+                mail1.value = stdList[index][1];
+                acc1.value = stdList[index][2];
+                job1.value = stdList[index][3];
+                tele1.value = stdList[index][4];
+                pass1.value = stdList[index][5];
+                acc1.disabled=true;
+                SetBtn.style.display='none';
+                UpBtn.style.display='inline-block';
+                DelBtn.style.display='inline-block';
+            }
+        }
+
+        async function set(){
+       
+        var ref= doc(db,"申請中-開課單位承辦人員資料", acc1.value);
+  
+        await setDoc(
+                  ref, {
+                    承辦人員名字: name1.value,
+                    帳號: acc1.value,
+                    密碼: pass1.value,
+                    承辦人員email:mail1.value,
+                    申請人電話: tele1.value,
+                    開課單位名稱: open,
+                    職稱: job1.value
+                  }
+              )
+              .then(()=>{
+                  alert("新增成功");
+                  window.location.reload();
+              })
+              .catch((error)=>{
+                  alert("Unsuccessful operation, error"+error);
+              });
+}
+        
+
+      async function update(){
+            var ref = doc(db,"申請中-開課單位承辦人員資料", acc1.value);
+
+            await updateDoc(
+                ref,{
+                  承辦人員名字: name1.value,
+                  帳號: acc1.value,
+                  密碼: pass1.value,
+                  承辦人員email:mail1.value,
+                  申請人電話: tele1.value,
+                  職稱: job1.value             
+                 }
+            )
+            .then(()=>{
+            alert("修改成功");
+            window.location.reload();
+            })
+            .catch((error)=>{
+                alert("Unsuccessful operation, error"+error);
+            });
+        }
+    
+            //get all data
+    
+            async function GetAllDataOnce(){
+
+              const ref = collection(db, "申請中-開課單位承辦人員資料");
+              const q = query(ref,where('開課單位名稱','==',open));
+              const querySnapshot = await getDocs(q);
+    
+                var students = [];
+                querySnapshot.forEach(doc =>{
+                    students.push(doc.data());
+                });
+    
+                AddAllItemsToTable(students);
+            }
+
+
+            window.onload = function(){ GetAllDataOnce(); getOpenData(); }
+
+  //新增表單裡的textbox
+  let name1 = document.getElementById("name1");
+  let mail1 = document.getElementById("mail1");
+  let job1 = document.getElementById("job1");
+  let tele1 = document.getElementById("tele1");
+  let acc1 = document.getElementById("acc1");
+  let pass1 = document.getElementById("pass1");
+  
+  //編輯表單裡的textbox
+  let formname = document.getElementById("formname");
+  let formmail = document.getElementById("formmail");
+  let formjob = document.getElementById("formjob");
+  let formtele = document.getElementById("formtele");
+  let formaccount = document.getElementById("formaccount");
+  let formpassword = document.getElementById("formpassword");
+
+  //button
+  let SetBtn = document.getElementById("setdata");
+  let SelBtn = document.getElementById("select");
+  let UpBtn = document.getElementById("update");
+  let DelBtn = document.getElementById("delete");
+  let surebtn = document.getElementById("sure");
+
+
+  async function deletedocument(){
+            var ref = doc(db,"申請中-開課單位承辦人員資料", acc1.value);
+            const docSnap = await getDoc(ref);
+
+            if(!docSnap.exists()){
+                alert("Document does not exists");
+                return;
+        }
+            await deleteDoc(ref)
+            .then(()=>{
+            alert("刪除成功");
+            window.location.reload();
+            })
+            .catch((error)=>{
+                alert("Unsuccessful operation, error"+error);
+            });
+        }
+        
+
+  SetBtn.addEventListener("click",(e) =>{
+    e.preventDefault();
+    set();
+  });
+  
+
+  UpBtn.addEventListener("click",(e) =>{
+    e.preventDefault();
+    update();
+  });
+
+
+    DelBtn.addEventListener("click",(e) =>{
+    e.preventDefault();
+    deletedocument();
+  });
+  
+
+  
+
+  </script>
+</body>
+
+</html>

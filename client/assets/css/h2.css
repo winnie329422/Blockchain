@@ -1,0 +1,176 @@
+.logo {
+    margin-top: 10px;
+    padding: 0;
+    height: 100px;
+}
+
+.dropbtn {
+    background-color: #76C784;
+    color: rgb(0, 0, 0);
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+    overflow: hidden;
+    /* 超過範圍隱藏 */
+    white-space: nowrap;
+    /* 不斷行 */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+body {
+    font-family: "微軟正黑體";
+    background-color: #ffffff;
+    margin: 0px auto;
+}
+
+.list {
+    position: fixed;
+}
+
+.logo {
+    margin: 5px 10px 0px;
+    height: 75px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    background-color: #76C784;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    font-size: large;
+    color: #000000;
+    text-align: justify;
+    z-index: 87;
+    font-weight: bold;
+}
+
+li a {
+    display: inline;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    overflow: hidden;
+    /* 超過範圍隱藏 */
+    white-space: nowrap;
+    /* 不斷行 */
+    font-weight: bold;
+}
+
+.logo {
+    margin-top: 10px;
+    padding: 0;
+    height: 100px;
+}
+
+.header {
+    text-align: center;
+    column-span: all;
+}
+
+.badbad {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    /* text-align: center; */
+}
+
+.badbad p {
+    padding: 28px;
+}
+
+.abula {
+    display: flex;
+    justify-content: center;
+}
+
+.abula li {
+    /* padding: 28px; */
+    font-size: 22px;
+}
+
+.ala {
+    margin-right: 100px;
+}
+
+.two {
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 100px;
+}
+
+.ffirst {
+    /* padding: 20px; */
+    padding: 0px 120px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.last {
+    padding: 0px 120px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.leftT {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: left;
+}
+
+.btn-info666 {
+    background-color: transparent;
+    border: 0px;
+    /* width: 70px; */
+    height: 35px;
+    font-size: 22px;
+    font-weight: bolder;
+    padding: 0px;
+    margin: 0px;
+  }
+
+#short{
+    margin-left: -100px;
+}

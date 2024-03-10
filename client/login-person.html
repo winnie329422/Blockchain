@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>長照人員登入</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../client/assets/css/login-person.css">
+    <link rel="stylesheet" type="text/css" href="../client/assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../client/assets/css/indexh.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <div class="act">
+                    <div class="smalltitle">長照人員專區</div>
+                    <br>
+                    <div class="account">
+                        帳號：
+                        <input name="acc"  id="acc"required>
+                    </div>
+                    <div class="account" >
+                        密碼：
+                        <input name="pass" type="password" id="pass"required>
+                    </div>
+                    <br>
+                    <div class="but">
+                        <button class="butlog" id="personLoginBtn">
+                            登入
+                        </button>
+                        <a href="register.html">
+                            <button class="butreg">
+                                註冊
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="row">
+
+                    <span class="right">
+                        <div class="zone"><a href="login-person.html" class="za">長照人員專區</a></div><br>
+                        <div class="zone"><a href="login-class.html" class="za">開課單位專區</a></div><br>
+                        <div class="zone"><a href="../client/login-certify.html" class="za">認證單位專區</a></div><br>
+                        <div class="zone"><a href="../client/login-back.html" class="za">管理人員專區</a></div><br>
+                    </span>
+
+                </div>
+                <div class="row">
+                    <span class="right2">
+                        <div class="smalltitle">系統公告</div>
+                        <hr class="sd">
+                        <div id="allclass3"></div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">Copyright©2022</footer>
+    <script>
+        $(function () {
+            $("#header").load("indexh.html")
+            $("#footer").load("footer.html")
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+  import { initializeApp } from "firebase/app";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+  authDomain: "contactform-d7d05.firebaseapp.com",
+  databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+  projectId: "contactform-d7d05",
+  storageBucket: "contactform-d7d05.appspot.com",
+  messagingSenderId: "371807550240",
+  appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  
+  import{
+  getFirestore, doc, setDoc, collection, addDoc, getDoc,updateDoc,deleteDoc,getDocs,where,query
+  }
+  from "firebase/firestore";
+  
+  const db = getFirestore();
+
+let Account = document.getElementById("acc");
+let Password = document.getElementById("pass");
+let login = document.getElementById("personLoginBtn");
+
+
+  
+//登入控制
+    async function get(){
+    var ref = doc(db,"長照人員資料", Account.value);
+    const docSnap = await getDoc(ref);
+
+    if(docSnap.exists()){
+       if(Password.value === docSnap.data().密碼){
+        alert("登入成功");
+        // window.location.assign("studentclasslist.html");
+        const userAccount = Account.value;
+        const userName = docSnap.data().姓名;
+        const userID = docSnap.data().身分證或護照號碼;
+        const block = docSnap.data().區塊鏈帳戶;
+        const userphone = docSnap.data().聯絡電話;
+        const useremail = docSnap.data().電子信箱;
+        
+        //sessionStorage
+        sessionStorage.setItem('Account',userAccount);
+        sessionStorage.setItem('Name',userName);
+        sessionStorage.setItem('IDnum',userID);
+        sessionStorage.setItem('block',block);
+        sessionStorage.setItem('phone',userphone);
+        sessionStorage.setItem('email',useremail);
+
+        // window.location.href="h4";
+        sessionStorage.getItem('Account')
+        window.location.assign("userIndex.html");
+       }
+       else{
+        alert("帳號密碼有誤");
+       }
+    }
+    else{
+        alert("帳號密碼有誤");
+    }
+    }
+
+
+    // function getsession(){
+    //catch session
+    
+    // }
+   
+     
+    login.addEventListener("click",(e) =>{
+    e.preventDefault();
+    get();
+  });
+
+  async function storedata3()
+            {
+                const ref = collection(db, "系統公告");
+                const q = query(ref,where('公告地方','==',"長照人員"));
+                const querySnapshot = await getDocs(q);
+
+                var stdNo=0;
+            querySnapshot.forEach(function(element)
+            {
+            
+                document.querySelector('#allclass3').innerHTML+=`
+                ${element.data().公告時間}公告：${element.data().公告內容}
+                             `
+                });  
+            };
+
+        window.onload = function(){ storedata3();}
+  </script>
+
+
+</body>
+
+</html>

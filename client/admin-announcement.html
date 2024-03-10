@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>編輯公告</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../client/assets/css/courseing.css">
+  <link rel="stylesheet" type="text/css" href="../client/assets/css/admin-announcement.css">
+</head>
+
+<body>
+  <div id="header"></div>
+  <div>
+    Account:<span id="Accountback"></span>
+  </div>
+  <script>
+    const backacc = sessionStorage.getItem('Accountback');
+  
+    document.getElementById('Accountback').textContent = backacc;
+
+  </script>
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <h5 class="sidenavtop"></h5>
+        <div class="sidenav">
+          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked
+              onclick="ing()">
+            <label class="btn" for="btnradio1">公告管理處</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="six()">
+            <label class="btn" for="btnradio2">編寫活動訊息、長照新聞及資訊</label>
+
+            <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="ago()">
+            <label class="btn" for="btnradio3">編輯合法長照機構</label> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-10">
+        <!-- 正在修習 -->
+        <div id="ing">
+          <p class="courseTitle">編寫系統公告</p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead style="border: solid black 1px;">
+                <!-- <tr style="background-color: #FFBC1D;">
+                  <th scope="col">課程類別</th>
+                  <th scope="col">課程名稱</th>
+                  <th scope="col">開課單位名稱</th>
+                  <th scope="col">上課日期</th>
+                  <th scope="col">上課地點</th>
+                  <th scope="col">預計獲得積分</th>
+                </tr> -->
+              </thead>
+              <tbody>
+                <tr>
+                  <td><textarea rows="4" cols="80" id="announce"></textarea></td>
+                  <td><select class="form-select" aria-label="Default select example" id="inwhere">
+                      <option selected>請選擇</option>
+                      <option value="全體公告">全體公告</option>
+                      <option value="長照人員">長照人員</option>
+                      <option value="開課單位">開課單位</option>
+                      <option value="長照繼續教育認可單位">長照繼續教育認可單位</option>
+                    </select></td>
+                  <td><button class="adminAddBtn" type="button" id="addannounce">新增</button></td>
+                </tr>
+                <!--要加tbody all class-->
+                <tbody id="allclass"></tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 正在修習 END-->
+        <!-- 已修習(6) -->
+        <div id="six">
+          <p class="courseTitle">編寫活動訊息、長照新聞及資訊</p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead style="border: solid black 1px;">
+                <!-- <tr style="background-color: #FFBC1D;">
+                  <th scope="col">課程類別</th>
+                  <th scope="col">課程名稱</th>
+                  <th scope="col">開課單位名稱</th>
+                  <th scope="col">上課日期</th>
+                  <th scope="col">上課地點</th>
+                  <th scope="col">預計獲得積分</th>
+                </tr> -->
+              </thead>
+              <tbody>
+                <tr>
+                  <td><textarea rows="4" cols="80" id="ann1"></textarea></td>
+                  <td><select class="form-select" aria-label="Default select example" id="annwhere1" required>
+                      <option selected>請選擇</option>
+                      <option value="活動訊息">活動訊息</option>
+                      <option value="長照新聞及資訊">長照新聞及資訊</option>
+
+                    </select></td>
+                  <td><button class="adminAddBtn" type="button" id="addann1">新增</button></td>
+                </tr>
+                <tbody id="allclass2"></tbody>
+                <!-- <tr>
+                  <td>
+                    衛生福利部長照專區
+                    <a target="blank" href="https://1966.gov.tw/LTC/mp-201.html">https://1966.gov.tw/LTC/mp-201.html</a>
+                  </td>
+                  <td>
+                    發布時間：110-01-18
+                  </td>
+                  <td><button class="adminBtn" type="button">刪除</button></td>
+                </tr> -->
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 已修習(6) END-->
+        <!-- 已修習(歷史) -->
+        <!-- <div id="ago">
+          <p class="courseTitle">已修習課程(歷史紀錄)</p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead style="border: solid black 1px;">
+                <tr style="background-color: #FFBC1D;">
+                  <th scope="col">課程類別</th>
+                  <th scope="col">課程名稱</th>
+                  <th scope="col">開課單位名稱</th>
+                  <th scope="col">上課日期</th>
+                  <th scope="col">上課地點</th>
+                  <th scope="col">獲得積分</th>
+                  <th scope="col">獲得積分日期</th>
+                  <th scope="col">查看證書</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">專業課程</th>
+                  <td>身心障礙支持服務核心課程</td>
+                  <td>台灣長期照護專業協會</td>
+                  <td>2022/05/30-31</td>
+                  <td>中原大學教學大樓103教室</td>
+                  <td class="futurePonit">2</td>
+                  <td>2022/04/05</td>
+                  <td><button type="button" class="btn btn-info" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">查看</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">專業品質</th>
+                  <td>感染管制</td>
+                  <td>台灣長期照護專業協會</td>
+                  <td>2022/05/30-31</td>
+                  <td>中原大學教學大樓103教室</td>
+                  <td class="futurePonit">2</td>
+                  <td>2022/04/05</td>
+                  <td><button type="button" class="btn btn-info" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">查看</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">專業倫理</th>
+                  <td>多元族群文化</td>
+                  <td>台灣長期照護專業協會</td>
+                  <td>2022/05/30-31</td>
+                  <td>中原大學教學大樓103教室</td>
+                  <td class="futurePonit">2</td>
+                  <td>2022/04/05</td>
+                  <td><button type="button" class="btn btn-info" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">查看</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div> -->
+        <!-- 已修習(歷史) END-->
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+  <script>
+    $(function () {
+      $("#header").load("back.html")
+      $("#footer").load("footer.html")
+    });
+    // 顯示哪一個
+    function ing() {
+      $('#ing').css({
+        'display': 'flex'
+      })
+      $('#six').css({
+        'display': 'none'
+      })
+      $('#ago').css({
+        'display': 'none'
+      })
+    }
+
+    function six() {
+      $('#six').css({
+        'display': 'flex'
+      })
+      $('#ing').css({
+        'display': 'none'
+      })
+      $('#ago').css({
+        'display': 'none'
+      })
+    }
+
+    // function ago() {
+    //   $('#ago').css({
+    //     'display': 'flex'
+    //   })
+    //   $('#ing').css({
+    //     'display': 'none'
+    //   })
+    //   $('#six').css({
+    //     'display': 'none'
+    //   })
+    // }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+
+<script type="module">
+  //import
+  import { initializeApp } from "firebase/app";
+          // TODO: Add SDKs for Firebase products that you want to use
+          // https://firebase.google.com/docs/web/setup#available-libraries
+  
+          // Your web app's Firebase configuration
+          const firebaseConfig = {
+              apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+              authDomain: "contactform-d7d05.firebaseapp.com",
+              databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+              projectId: "contactform-d7d05",
+              storageBucket: "contactform-d7d05.appspot.com",
+              messagingSenderId: "371807550240",
+              appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+          };
+  
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          import{
+              getFirestore, doc, getDoc, getDocs, collection, onSnapshot, updateDoc,setDoc,deleteDoc,where,query
+          }
+          from "firebase/firestore";
+  
+          const db = getFirestore();
+
+
+          let ann = document.getElementById("announce");
+          let annwhere = document.getElementById("inwhere");
+          let addann = document.getElementById("addannounce");
+          var today = new Date();
+          var date = today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
+
+
+          async function setann(){
+          var ref= doc(db,"系統公告", ann.value);
+    
+          await setDoc(
+                    ref, {
+                      公告地方: annwhere.value,
+                      公告內容: ann.value,
+                      公告時間: date,
+                      公告狀態:"正在公告"
+                    }
+                )
+                .then(()=>{
+                    alert("公告新增成功");
+                    window.location.reload();
+                })
+                .catch((error)=>{
+                    alert("Unsuccessful operation, error"+error);
+                });
+    }
+    addann.addEventListener("click",(e) =>{
+    e.preventDefault();
+    setann();
+  });
+
+  async function storedata()
+    {
+        const ref = collection(db, "系統公告");
+        const q = query(ref,where("公告地方","in",["全體公告","長照人員","開課單位","長照繼續教育認可單位"]));
+        const querySnapshot = await getDocs(q);
+
+        var stdNo=0;
+    querySnapshot.forEach(function(element)
+    {
+      
+        document.querySelector('#allclass').innerHTML+=`
+              <tr>
+                  <td>
+                    ${element.data().公告地方}
+                  </td>
+                  <td>
+                    ${element.data().公告內容}
+                  </td>
+                  <td>
+                    ${element.data().公告時間}
+                  </td>
+                  <td><button class="adminBtn" type="button" id="${element.data().公告內容}" name="send">刪除</button></td>
+                </tr>
+       `      
+         });
+         //重點！！！！
+        const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.id);
+        //localStorage
+        const anncontent = this.id;//div
+        console.log(anncontent);
+
+        let del = document.getElementsByName("send");
+        async function delann(){
+            var ref = doc(db,"系統公告", anncontent);
+            const docSnap = await getDoc(ref);
+
+            if(!docSnap.exists()){
+                alert("公告不存在");
+                return;
+        }
+            await deleteDoc(ref)
+            .then(()=>{
+            alert("已將公告下架");
+            window.location.reload();
+            })
+            .catch((error)=>{
+                alert("Unsuccessful operation, error"+error);
+            });
+        }
+        for (var i = 0 ; i < del.length; i++) {
+        del[i].addEventListener('click' , delann , false ) ; 
+      }
+        } 
+      }    
+        }
+
+        let ann1 = document.getElementById("ann1");
+        let annwhere1 = document.getElementById("annwhere1");
+        let addann1 = document.getElementById("addann1");
+
+        async function setann1(){
+          var ref= doc(db,"系統公告", ann1.value);
+    
+          await setDoc(
+                    ref, {
+                      公告地方: annwhere1.value,
+                      公告內容: ann1.value,
+                      公告時間: date,
+                      公告狀態:"正在公告"
+                    }
+                )
+                .then(()=>{
+                    alert("公告新增成功");
+                    window.location.reload();
+                })
+                .catch((error)=>{
+                    alert("Unsuccessful operation, error"+error);
+                });
+          }
+          addann1.addEventListener("click",(e) =>{
+          e.preventDefault();
+          setann1();
+        });
+
+
+        async function storedata2()
+    {
+        const ref = collection(db, "系統公告");
+        const q = query(ref,where("公告地方","in",["活動訊息","長照新聞及資訊"]));
+        const querySnapshot = await getDocs(q);
+
+        var stdNo=0;
+    querySnapshot.forEach(function(element)
+    {
+      
+        document.querySelector('#allclass2').innerHTML+=`
+              <tr>
+                  <td>
+                    ${element.data().公告地方}
+                  </td>
+                  <td>
+                    ${element.data().公告內容}
+                  </td>
+                  <td>
+                    ${element.data().公告時間}
+                  </td>
+                  <td><button class="adminBtn" type="button" id="${element.data().公告內容}" name="send">刪除</button></td>
+                </tr>
+       `      
+         });
+         //重點！！！！
+        const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.id);
+        //localStorage
+        const anncontent = this.id;//div
+        console.log(anncontent);
+
+        let del = document.getElementsByName("send");
+        async function delann(){
+            var ref = doc(db,"系統公告", anncontent);
+            const docSnap = await getDoc(ref);
+
+            if(!docSnap.exists()){
+                alert("公告不存在");
+                return;
+        }
+            await deleteDoc(ref)
+            .then(()=>{
+            alert("已將公告下架");
+            window.location.reload();
+            })
+            .catch((error)=>{
+                alert("Unsuccessful operation, error"+error);
+            });
+        }
+        for (var i = 0 ; i < del.length; i++) {
+        del[i].addEventListener('click' , delann , false ) ; 
+      }
+        } 
+      }    
+        }
+        
+        window.onload = function(){ storedata();storedata2();}
+        </script>
+</body>
+
+</html>

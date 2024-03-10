@@ -1,0 +1,27 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  min-height: calc(100% - 50px);
+  margin-bottom: -50px;
+}
+
+.contant {
+  padding-bottom: 50px;
+}
+
+.footer {
+  height: 40px;
+  text-align: center;
+  width: 100%;
+  background-color: #76c784;
+  margin-top: 80px;
+  padding-top: 25px;
+  position: fixed;
+  bottom: 0;
+}
+
+/*# sourceMappingURL=account-class.07a3d4d1.css.map */

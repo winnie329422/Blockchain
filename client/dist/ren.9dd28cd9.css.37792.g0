@@ -1,0 +1,111 @@
+.main {
+  margin-left: 90px;
+  position: relative;
+}
+
+.container {
+  width: 1470px;
+  margin-top: 130px;
+  position: relative;
+  top: 50px;
+  left: 150px;
+}
+
+.bt {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.news {
+  width: 1200px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  background-color: #f0e3b0;
+  border-radius: 15px;
+  margin-bottom: 175px;
+  margin-left: 150px;
+  padding: 25px;
+  display: inline-block;
+}
+
+.za {
+  color: #000;
+  text-decoration: none;
+}
+
+.con {
+  text-align: center;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.st {
+  font-weight: bold;
+}
+
+.mt {
+  color: #542222;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.dash {
+  width: 250px;
+  height: 0;
+  border-bottom: 1px dashed #000;
+  margin-left: 0;
+}
+
+table {
+  border-spacing: 0;
+  width: 100%;
+}
+
+tr {
+  text-align: center;
+}
+
+th {
+  padding: 10px;
+}
+
+table tbody tr:nth-child(2n+1) {
+  background-color: #eee;
+}
+
+table thead {
+  color: #000;
+  background-color: #f1d753;
+}
+
+table thead th:first-child {
+  border: 1px solid #f1d753;
+  border-radius: 15px 0 0;
+}
+
+table thead th:last-child {
+  border-right: 1px solid #f1d753;
+  border-radius: 0 15px 0 0;
+}
+
+table tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 15px;
+}
+
+table tbody tr:last-child td:last-child {
+  border-radius: 0 0 15px;
+}
+
+.check {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #e9d78e;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 10px;
+  display: inline-block;
+}
+
+/*# sourceMappingURL=ren.9dd28cd9.css.map */

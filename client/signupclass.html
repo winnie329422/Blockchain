@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="stylesheet" text="text/css" href="assets/css/shelfclass.css">
+  <link rel="stylesheet" text="text/css" href="assets/css/all.css">
+  <link rel="stylesheet" text="text/css" href="assets/css/signupclass.css">
+  <title>課程內容細則</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+      input{
+        border-bottom-style: solid;
+        border-width: 0px;
+      }
+    </style>
+  </head>
+  
+  <body>
+  
+    <div id="header"></div>
+    <!--test-->
+  <div>
+    <span id="Account"></span>
+  </div>
+  <script>
+    const userAccount = sessionStorage.getItem('Account');
+    const userName = sessionStorage.getItem('Name');
+    const userphone = sessionStorage.getItem('phone');
+    const userID = sessionStorage.getItem('IDnum');
+    const block = sessionStorage.getItem('block');
+    const useremail = sessionStorage.getItem('email');
+    console.log(userName,userphone,userID,useremail);
+  
+   
+  
+  </script>
+    <div class="container">
+      <div class="row">
+        <div class="h4 FirstuserTitle ">
+          <span class="userTitleSpan caca tt">課程資料</span>
+        </div>
+        <div class="col-6 classpic">
+          <!-- 課程圖片 --------------------------------------->
+          <img id="img" class="imgtype">
+        </div>
+      <div class="col-6">
+        <p>課程名稱：<input id="classname" readonly="readonly"></p>
+        <p>講師：<input id="teacher" readonly="readonly"></p>
+        <p>課程所屬類別：<input id="type" readonly="readonly"></p>
+        <p>報名費用：<input id="charge" readonly="readonly"></p>
+        <p>開課單位：<input id="open" readonly="readonly"></p>
+        <p>上課日期：<input id="date" readonly="readonly"></p>
+        <p>結束日期：<input id="classend" readonly="readonly"></p>
+        <div class="winnie"> <button type="button" class="shelfclassbtn5 btn btn-info" id="signup">報名</button></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="h4 FirstuserTitle babala gogo">
+        <span class=" caca ww">課程資訊</span>
+      </div>
+      <div class="col">
+        <p>上課方式：<input id="how" readonly="readonly"></p>
+        <p>上課地點：<input id="place" readonly="readonly"></p>
+        <p>報名時間：<input id="sign" readonly="readonly"></p>
+        <p>課程規定人數：<input id="rule" readonly="readonly"></p>
+        <div class="row">
+          <div class="col">
+            <p>繳費方式：</p>
+          </div>
+        </div>
+        <div class="row" style="margin-left: 40px;">
+          <div class="col-4">
+             銀行代碼:<input id="code" readonly="readonly"> 
+          </div>
+          <div class="col-4">
+            銀行帳號:<input id="bankacc" readonly="readonly"> 
+          </div>
+          <div class="col-4">
+            戶名:<input id="bankname" readonly="readonly"> 
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="row">
+        <div class="h4 FirstuserTitle babala gogo">
+          <p class=" caca ww">課程目的</p>
+        </div>
+        <p><input id="purpose" readonly="readonly"> </p>
+      </div>
+      <div class="row">
+        <div class="h4 FirstuserTitle babala gogo">
+          <span class=" caca ww">積分認證 </span>
+        </div>
+        <p>獲得積分：<input id="credit" readonly="readonly"> </p>
+        <p><input id="ps" readonly="readonly"> </p>
+      </div>
+      <div class="row">
+        <div class="h4 FirstuserTitle babala gogo">
+          <span class=" caca ww">注意事項 </span>
+        </div>
+        <p>
+        <input id="attention" readonly="readonly">
+         
+      </p>
+      </div>
+
+    </div>
+  </div>
+  
+  <div id="footer"></div>
+
+  <script>
+    $(function () {
+      $("#header").load("h4.html")
+      $("#footer").load("footer.html")
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+<!--firebase-->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+authDomain: "contactform-d7d05.firebaseapp.com",
+databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+projectId: "contactform-d7d05",
+storageBucket: "contactform-d7d05.appspot.com",
+messagingSenderId: "371807550240",
+appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+import{
+getFirestore, doc, setDoc, collection, addDoc, getDoc,updateDoc,deleteDoc
+}
+from "firebase/firestore";
+
+const db = getFirestore();
+    
+    //localStorage
+    const Class = localStorage.getItem('classname');
+    document.getElementById('classname').value = Class;
+    console.log(Class);
+
+    
+    //抓ID值
+      let imgsrc = document.getElementById("img");
+      let classunit = document.getElementById("classname");
+      let teacher = document.getElementById("teacher");
+      let classtype = document.getElementById("type");
+      let charge = document.getElementById("charge");
+      let openclass = document.getElementById("open");
+      let classdate = document.getElementById("date");
+      let classend = document.getElementById("classend");
+      let how = document.getElementById("how");
+      let place = document.getElementById("place");
+      let joindate = document.getElementById("sign");
+      let people = document.getElementById("rule");
+      let bank = document.getElementById("code");
+      let bankacc = document.getElementById("bankacc");
+      let bankname = document.getElementById("bankname");
+      let purpose = document.getElementById("purpose");
+      let credit = document.getElementById("credit");
+      let auth = document.getElementById("ps");
+      let note = document.getElementById("attention");
+      
+
+    //signup class
+      let Account = userAccount;
+      console.log(Account);
+      let signup = document.getElementById('signup');
+
+    //get剩下的值
+    async function get(){
+        var ref = doc(db,"上傳課程資料", classunit.value);
+        const docSnap = await getDoc(ref);
+
+        if(docSnap.exists()){
+            imgsrc.src = docSnap.data().ImageURL;
+            teacher.value = docSnap.data().講師;
+            classtype.value = docSnap.data().課程所屬類別;
+            charge.value = docSnap.data().課程費用;
+            openclass.value = docSnap.data().開課單位;
+            classdate.value = docSnap.data().開始上課;
+            classend.value = docSnap.data().結束上課;
+            how.value = docSnap.data().上課方式;
+            place.value = docSnap.data().上課地點;
+            joindate.value = docSnap.data().報名時間;
+            people.value = docSnap.data().課程規定人數;
+            bank.value = docSnap.data().銀行代碼;
+            bankacc.value = docSnap.data().銀行帳號;
+            bankname.value = docSnap.data().銀行戶名;
+            purpose.value = docSnap.data().課程目的;
+            credit.value = docSnap.data().積分數;
+            auth.value = docSnap.data().積分認證;
+            note.value = docSnap.data().注意事項;
+        }
+        else{
+            alert("No such Document");
+        }
+        signup.addEventListener("click",(e) =>{
+        e.preventDefault();
+        get2();
+      });
+
+      //檢查是否已報名過
+      async function get2(){
+        var ref = doc(db,"報名資料",  Account+classunit.value ); //帳號+課程名稱
+        const docSnap = await getDoc(ref);
+
+        if(docSnap.exists()){
+            alert("已經報名過囉！");
+        }
+        else{
+            set();
+        }
+      }
+
+      //報名
+      async function set(){
+        var ref= doc(db,"報名資料", Account+classunit.value);
+
+        await setDoc(
+            ref, {
+                帳號: Account,
+                電子信箱: useremail,
+                身分證或護照號碼: userID,
+                聯絡電話: userphone,
+                區塊鏈帳戶: block,
+                姓名: userName,
+                課程名稱: classunit.value,
+                課程類別: classtype.value,
+                開課單位: openclass.value,
+                上課日期: classdate.value,
+                結束日期: classend.value,
+                上課地點: place.value,
+                積分數: credit.value,
+                是否繳費:"未繳費",
+                是否通過:"",
+                開課單位審查意見:"",
+                認證單位審查結果:"",
+                認證單位審查意見:""
+                
+            }
+          //  , {merge: true}
+        )
+        .then(()=>{
+            alert("報名成功");
+            window.location.reload();
+        })
+        .catch((error)=>{
+            alert("Unsuccessful operation, error"+error);
+        });
+      }
+
+      }
+      
+      window.onload = get;
+
+      // //set localStorage
+      // const classname = document.getElementById('classname');
+      // const account = document.getElementById('Account');
+      // const type = document.getElementById('type');
+      // const open = document.getElementById('open');
+      // const date = document.getElementById('date');
+      // const place2 = document.getElementById('place');
+      // const credit2 = document.getElementById('credit');
+
+      // const classvalue = classname.value;
+      // const accountvalue = account.value;
+      // const typevalue = type.value;
+      // const openvalue = open.value;
+      // const datevalue = date.value;
+      // const placevalue = place2.value;
+      // const creditvalue = credit2.value;
+
+      // localStorage.setItem('class',classvalue);
+      // localStorage.setItem('acc',accountvalue);
+      // localStorage.setItem('type',typevalue);
+      // localStorage.setItem('open',openvalue);
+      // localStorage.setItem('date',datevalue);
+      // localStorage.setItem('place',placevalue);
+      // localStorage.setItem('credit',creditvalue);
+
+      // //get LocalStorage
+      // const classname1 = localStorage.getItem('class');
+      // const account1 = localStorage.getItem('acc');
+      // const type1 = localStorage.getItem('type');
+      // const open1 = localStorage.getItem('open');
+      // const date1 = localStorage.getItem('date');
+      // const place1 = localStorage.getItem('place');
+      // const credit1 = localStorage.getItem('credit');
+      // console.log(classname1);
+
+      
+
+      
+      
+
+  </script>
+
+</body>
+
+</html>

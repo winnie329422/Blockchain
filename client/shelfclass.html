@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="stylesheet" text="text/css" href="assets/css/shelfclass.css">
+  <link rel="stylesheet" text="text/css" href="assets/css/all.css">
+  <title>上傳課程</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+
+  <div id="header"></div>
+  <!--test-->
+  <div>
+   <span id="Acc"></span>
+  </div>
+  <script>
+    const openAcc = sessionStorage.getItem('Acc');
+  </script>
+  <div class="container">
+    <div class="row">
+        <div class="h4 FirstuserTitle">
+            <span class="userTitleSpan caca">課程資訊</span>
+        </div>
+        <div class="col-6 classpic">
+          <div class="usetomargin">
+            <label id="extlab"></label> <br><br>
+            <img id="myimg" class="insideclasspic" src="assets/image/chosePhoto.png"/> <label id="upprogress"></label> <br><br>
+          </div>
+ 
+            <div class="downbtn">
+              <button id="selbtn">請選擇檔案</button>
+              <label>Image Name</label>
+              <input type="text" id="namebox" >
+            </div>
+          </div>
+       
+        <div class="col-6">
+           <div class="input-group mb-3">
+                <span class="input-group-text"  id="inputGroup-sizing-default">課程名稱:</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="class" required/>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"  id="inputGroup-sizing-default">講師:</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="teacher" required/>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"  id="inputGroup-sizing-default">課程所屬類別:</span>
+                <div class="aaaaa">
+                  <div class="form-check form-check-inline">
+                        <select id="classtype" required>
+                                <option selected>請選擇</option>
+                                <option value="專業課程">專業課程</option>
+                                <option value="專業品質">專業品質</option>
+                                <option value="專業倫理">專業倫理</option>
+                                <option value="專業法規">專業法規</option>
+                        </select>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"  id="inputGroup-sizing-default">開課單位:</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="open" readonly="readonly"/>
+              </div>
+              <script>
+                    const openName = sessionStorage.getItem('open')  
+                    document.getElementById('open').value = openName;
+              </script>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default4">上課日期:</span>
+                <span class="input-group-text" id="inputGroup-sizing-default0">開始上課:</span>
+                <input type="date" class="form-control" aria-label="Sizing example input"aria-describedby="inputGroup-sizing-sm" id="classdate">
+                <span class="input-group-text" id="inputGroup-sizing-default50">結束上課:</span>
+                <input type="date" class="form-control" aria-label="Sizing example input"aria-describedby="inputGroup-sizing-sm" id="classdateend">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"  id="inputGroup-sizing-default">其他說明:</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="other" required/>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="h4 FirstuserTitle babala">
+            <span class="userTitleSpan caca">已獲得積分</span>
+          </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text"  id="inputGroup-sizing-default">上課方式:</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="style" required/>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"  id="inputGroup-sizing-default">上課地點:</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="place" required/>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default96">課程費用:</span>
+                <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="charge">
+              </div> 
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default4">報名時間:</span>
+                <span class="input-group-text" id="inputGroup-sizing-default0">開始報名:</span>
+                <input type="date" class="form-control" aria-label="Sizing example input"aria-describedby="inputGroup-sizing-sm" id="join">
+                <span class="input-group-text" id="inputGroup-sizing-default50">結束報名:</span>
+                <input type="date" class="form-control" aria-label="Sizing example input"aria-describedby="inputGroup-sizing-sm" id="joinend">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"  id="inputGroup-sizing-default">課程規定人數:</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="people" required/>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text"  id="inputGroup-sizing-default">繳費方式:</span>
+            </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text card"  id="inputGroup-sizing-default">銀行代碼:</span>
+                <input type="number" class="form-control bank" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="bank" oninput = "value=value.replace(/[^\d]/g,'')" required/>
+                <span class="input-group-text card"  id="inputGroup-sizing-default">銀行帳號:</span>
+                <input type="number" class="form-control bank" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="bankacc" oninput = "value=value.replace(/[^\d]/g,'')" required/>
+                <span class="input-group-text card"  id="inputGroup-sizing-default">銀行戶名:</span>
+                <input type="text" class="form-control bank" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="bankname" required/>
+              </div>
+        </div>
+        <div class="row">
+            <div class="h4 FirstuserTitle babala">
+                <span class="userTitleSpan caca">課程目的</span>
+            </div>
+            <div class="form-group green-border-focus">
+                <textarea class="form-control" id="purpose" rows="3" required></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="h4 FirstuserTitle babala">
+                <span class="userTitleSpan caca">積分認證</span>
+            </div>
+            <div class="myselfdo">
+                <p class="bonusnumber">積分數:</p><input type="number" class="textnumber" id="credit" oninput = "value=value.replace(/[^\d]/g,'')" required/>
+            </div>
+            <div class="form-group green-border-focus">
+                <textarea class="form-control" id="auth" rows="3" required></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="h4 FirstuserTitle babala">
+                <span class="userTitleSpan caca">注意事項</span>
+            </div>
+            <div class="form-group green-border-focus">
+                <textarea class="form-control" id="note" rows="3" required></textarea>
+            </div>
+        </div>
+        <div class="row shelfclassbtns">
+            <!-- 吳老師說要加的 -->
+            <button type="button" class="shelfclassbtn2 btn btn-info" id="Insbtn">確定上傳</button>
+            <button type="button" class="shelfclassbtn3 btn btn-info">取消</button>
+        </div>
+
+
+    </div>
+  </div>
+  <div id="footer"></div>
+
+
+  <script>
+    $(function () {
+      $("#header").load("h3.html")
+      $("#footer").load("footer.html")
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+
+
+
+  <!--Firebase-->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+authDomain: "contactform-d7d05.firebaseapp.com",
+databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+projectId: "contactform-d7d05",
+storageBucket: "contactform-d7d05.appspot.com",
+messagingSenderId: "371807550240",
+appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+//Storage
+import{getStorage, ref as sRef, uploadBytesResumable, getDownloadURL}
+from "firebase/firestore";
+
+import{
+getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField
+}
+from "firebase/firestore";
+
+const db = getFirestore();
+
+// Reference
+
+//let photo = document.getElementById("preview_progressbarTW_img");
+let classunit = document.getElementById("class");
+let teacher = document.getElementById("teacher");
+let classtype = document.getElementById("classtype");
+let openclass = document.getElementById("open");
+let classdate = document.getElementById("classdate");
+let classdateend = document.getElementById("classdateend");
+let otherdate = document.getElementById("other");
+
+
+let how = document.getElementById("style");
+let place = document.getElementById("place");
+let charge = document.getElementById("charge");
+let joindate = document.getElementById("join");
+let joindateend = document.getElementById("joinend");
+let people = document.getElementById("people");
+let bank = document.getElementById("bank");
+let bankacc = document.getElementById("bankacc");
+let bankname = document.getElementById("bankname");
+
+let purpose = document.getElementById("purpose");
+let auth = document.getElementById("auth");
+let credit = document.getElementById("credit");
+let note = document.getElementById("note");
+
+//button
+//let selbtn = document.getElementById("selbtn");
+let set = document.getElementById("Insbtn");
+
+//Adding document
+//insert function
+
+
+
+var files = [];
+var reader = new FileReader();
+
+
+var namebox = document.getElementById('namebox');
+var extlab = document.getElementById('extlab');
+var myimg = document.getElementById('myimg');
+var proglab = document.getElementById('upprogress');
+var selBtn = document.getElementById('selbtn');
+//var UpBtn = document.getElementById('upbtn');
+
+var input = document.createElement('input');
+input.type = 'file';
+
+input.onchange = e=>{
+    files = e.target.files;
+
+    var extention = GetFileExt(files[0]);
+    var name = GetFileName(files[0]);
+
+    namebox.value = name;
+    extlab.innerHTML = extention;
+
+    reader.readAsDataURL(files[0]);
+}
+
+
+reader.onload = function(){
+    myimg.src = reader.result;
+}
+
+//select
+selBtn.onclick = function(){
+    input.click();
+}
+
+function GetFileExt(file){
+    var temp = file.name.split('.');
+    var ext = temp.slice((temp.length-1),(temp.length));
+    return '.' + ext[0];
+}
+
+function GetFileName(file){
+    var temp = file.name.split('.');
+    var ext = temp.slice(0,-1).join('.');
+    return ext;
+}
+//upload process
+//
+async function UploadProcess(){
+    var ImgUpload = files[0];
+
+    var ImgName = namebox.value + extlab.innerHTML;
+
+    const metaData = {
+        contentType:ImgUpload.type
+    }
+    const storage = getStorage();
+
+    const storageRef = sRef(storage, "Images/"+ImgName);
+
+    const UploadTask = uploadBytesResumable(storageRef, ImgUpload, metaData);
+
+    UploadTask.on('state-changed', (snapshot)=>{
+        var progess = (snapshot.bytesTransferred / snapshot.totalBytes) *100;
+        proglab.innerHTML = "Upload" + progess +"%";
+    },
+    (error)=>{
+        alert("error:image not upload!");
+    },
+    ()=>{
+        getDownloadURL(UploadTask.snapshot.ref).then((downloadURL)=>{
+            SaveURLtoFirestore(downloadURL);
+        });
+    }
+    );
+}
+
+//存照片進firestore
+async function SaveURLtoFirestore(url){
+    var name = namebox.value;
+    var ext = extlab.innerHTML;
+
+    var ref = doc(db, "上傳課程資料",classunit.value);
+ 
+    await setDoc(ref,{
+        ImageName: (name+ext),
+        ImageURL: url,
+        課程名稱: classunit.value,
+        講師: teacher.value,
+        課程所屬類別: classtype.value,
+        開課單位: openclass.value,
+        開始上課: classdate.value,
+        結束上課: classdateend.value,
+        時間說明: otherdate.value,
+        上課方式: how.value,
+        上課地點: place.value,
+        課程費用: charge.value,
+        報名時間: joindate.value,
+        報名結束: joindateend.value,
+        課程規定人數: people.value,
+        銀行代碼: bank.value,
+        銀行帳號: bankacc.value,
+        銀行戶名: bankname.value,
+        課程目的: purpose.value,
+        積分認證: auth.value,
+        積分數: credit.value,
+        注意事項: note.value
+    })
+    .then(()=>{
+ alert("課程上傳成功！");
+ window.location.reload();
+})
+.catch((error)=>{
+alert("Unsuccessful operation, error"+ error);
+});
+};
+
+
+
+set.addEventListener("click", (e) =>{
+    e.preventDefault();
+    //AddDocument_CustomID();
+    UploadProcess();
+  });
+</script>
+</body>
+
+</html>

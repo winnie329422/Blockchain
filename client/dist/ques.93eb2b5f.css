@@ -1,0 +1,79 @@
+.main {
+  margin-left: 90px;
+  position: relative;
+}
+
+.container {
+  width: 1470px;
+  margin-top: 130px;
+  position: relative;
+  top: 50px;
+  left: 150px;
+}
+
+.bt {
+  margin-left: 30%;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.news {
+  width: 1000px;
+  height: -moz-fit-content;
+  height: fit-content;
+  float: left;
+  background-color: #f0e3b0;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.right {
+  width: 150px;
+  float: right;
+  background-color: #f5f5f5;
+  border: 1px solid #000;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.zone {
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  background-color: #98ffb7;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.right2 {
+  width: 150px;
+  float: right;
+  height: 250px;
+  background-color: #f5f5f5;
+  border: 1px solid #000;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.za {
+  color: #000;
+  text-decoration: none;
+}
+
+.con {
+  padding: 15px;
+  font-size: 18px;
+}
+
+.st {
+  font-weight: bold;
+}
+
+.dash {
+  width: 975px;
+  height: 0;
+  border-bottom: 1px dashed #000;
+  margin-left: 0;
+}
+
+/*# sourceMappingURL=ques.93eb2b5f.css.map */

@@ -1,0 +1,84 @@
+.input-group-text {
+  background-color: #fff;
+  border: 0 solid;
+  font-size: 20px;
+}
+
+.classpic {
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -40px;
+  display: flex;
+}
+
+.insideclasspic {
+  height: 290px;
+  width: 290px;
+}
+
+.a-upload {
+  color: #000;
+}
+
+.usetomargin {
+  display: none;
+}
+
+.babala {
+  margin-top: 50px;
+}
+
+.caca {
+  font-size: 35px;
+}
+
+.card {
+  padding-left: 50px;
+}
+
+.bank {
+  margin-right: 12px;
+}
+
+.textnumber {
+  width: 30px;
+  height: 35px;
+  margin-top: 5px;
+  margin-left: 2px;
+}
+
+.bonusnumber {
+  font-size: 25px;
+}
+
+.myselfdo {
+  justify-content: left;
+  display: flex;
+}
+
+.shelfclassbtn1 {
+  width: 80px;
+  background-color: orange;
+}
+
+.shelfclassbtn2 {
+  width: 100px;
+  background-color: #ff6c6c;
+}
+
+.shelfclassbtn3 {
+  width: 80px;
+  background-color: #adff2f;
+}
+
+.shelfclassbtns {
+  justify-content: space-around;
+  margin-top: 20px;
+  display: flex;
+}
+
+#confirm {
+  display: none;
+}
+
+/*# sourceMappingURL=uploadedclass.0d91ccfc.css.map */

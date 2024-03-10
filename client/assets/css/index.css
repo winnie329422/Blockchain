@@ -1,0 +1,177 @@
+body {
+    font-family: "微軟正黑體";
+    background-color: #ffffff;
+    margin: 0px auto;
+}
+
+.list {
+    position: fixed;
+}
+
+.logo {
+    margin: 5px 10px 0px;
+    height: 75px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    background-color: #76C784;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    font-size: large;
+    color: #000000;
+    text-align: justify;
+    z-index: 87;
+    font-weight: bold;
+}
+
+li a {
+    display: inline;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #000000;
+    overflow: hidden;
+    /* 超過範圍隱藏 */
+    white-space: nowrap;
+    /* 不斷行 */
+    font-weight: bold;
+}
+
+.logo {
+    margin-top: 10px;
+    padding: 0;
+    height: 100px;
+}
+
+.header {
+    text-align: center;
+    column-span: all;
+}
+
+html,
+body {
+    height: 100%;
+    /*外層高度100%*/
+    margin: 0;
+}
+
+.wrapper {
+    min-height: 100%;
+    min-height: calc(100% - 50px);
+    /*外層高度100%*/
+    margin-bottom: -50px;
+    /*隨footer高度需做調整*/
+}
+
+.contant {
+    padding-bottom: 50px;
+    /*避免文字超出瀏覽器時，內容區塊不會和footer打架*/
+}
+
+.footer {
+    margin-top: 80px;
+    height: 60px;
+    /*設定footer本身高度*/
+    background-color: #76C784;
+    text-align: center;
+    padding-top: 25px;
+    /* position: fixed;
+    bottom: 0;
+    width: 100%; */
+}
+
+
+
+.smalltitle {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.st1 {
+    background-color: #8bc3ed;
+    height: 2px;
+    width: 110px;
+    margin-left: 0px;
+}
+
+.st2 {
+    background-color: #8bc3ed;
+    height: 4px;
+    width: 180px;
+    margin-left: 0px;
+}
+
+.date {
+    margin-left: 500px;
+}
+
+.dash {
+    width: 950px;
+    height: 0;
+    border-bottom: #000000 1px dashed;
+    margin-left: 0px;
+}
+
+.za {
+    text-decoration: none;
+    color: #000000;
+}
+
+.act {
+    background-color: #f0e3b0;
+    border-radius: 15px;
+    padding: 25px;
+    width: fit-content;
+    display: inline-block;
+}
+
+.act:last-child {
+    margin-top: 50px;
+}
+
+.right {
+    background-color: #F5F5F5;
+    border-radius: 15px;
+    padding: 25px;
+    /* width: 200px; */
+    /* float: right; */
+    border: 1px #000000 solid;
+    /* margin-left: 50px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right2 {
+    background-color: #F5F5F5;
+    border-radius: 15px;
+    padding: 25px;
+    /* width: 200px; */
+    /* float: right; */
+    border: 1px #000000 solid;
+    height: 250px;
+    /* margin-left: 50px; */
+    /* margin-right: 150px; */
+    margin-top: 30px;
+}
+
+.zone {
+    background-color: #98FFB7;
+    border-radius: 15px;
+    padding: 15px;
+    width: fit-content;
+    text-align: center;
+}
+
+.annouceitem {
+    display: flex;
+    justify-content: space-between;
+}

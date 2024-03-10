@@ -1,0 +1,121 @@
+#homeall {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.mySlides {
+  display: none;
+}
+
+.photo {
+  width: 1000px;
+  height: 550px;
+  margin-top: 150px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.slideshow-container {
+  max-width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.prev, .next {
+  cursor: pointer;
+  color: #fff;
+  -webkit-user-select: none;
+  user-select: none;
+  border-radius: 0 3px 3px 0;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all .6s;
+  position: absolute;
+  top: 50%;
+}
+
+.next {
+  border-radius: 3px 0 0 3px;
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: #000c;
+}
+
+.text {
+  color: #f2f2f2;
+  width: 100%;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 15px;
+  position: absolute;
+  bottom: 8px;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  padding: 8px 12px;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next, .text {
+    font-size: 11px;
+  }
+}
+
+#home1 {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.ann {
+  height: 70px;
+  width: 1000px;
+  border: 5px solid #76c784;
+  align-items: center;
+  padding: 20px;
+  font-size: 25px;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: #000;
+}
+
+a:hover {
+  color: #76c784;
+}
+
+/*# sourceMappingURL=home-class.a421ef17.css.map */

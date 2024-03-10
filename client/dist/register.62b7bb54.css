@@ -1,0 +1,27 @@
+label {
+  margin-top: 5px;
+}
+
+.container {
+  width: 50%;
+}
+
+.submitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.submitButton input {
+  width: 80px;
+  padding: 5px 0px;
+  border: solid 1px #76C784;
+  background-color: #88E9A5;
+}
+
+.userTitleSpan {
+  margin-bottom: 30px;
+}
+
+/*# sourceMappingURL=/register.62b7bb54.css.map */

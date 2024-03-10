@@ -1,0 +1,42 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 80px;
+    flex: 1;
+    /*高度自動伸展至所有剩餘的空間*/
+}
+
+
+.container {
+    display: flex;
+    /*啟用flex*/
+    flex-direction: column;
+    /*設定由上到下排列*/
+    min-height: 69vh;
+    /*至少佔據可視範圍的整個高度*/
+}
+
+
+main {
+    flex: 1;
+}
+
+/* Basic styling */
+body {
+    margin: 0;
+}
+
+.footer {
+    width: 100%;
+    height: 80px;
+    margin-top: 80px;
+    height: 60px;
+    /*設定footer本身高度*/
+    background-color: #76C784;
+    text-align: center;
+    padding-top: 20px;
+}

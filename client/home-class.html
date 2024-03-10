@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/home-class.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/h3.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <title>開課單位首頁</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+<!--header-->
+    <div id="header"></div>
+    
+    <div class="header">
+        <header>
+            <ul class="list">
+              <li><a href="home-class.html" title="積分管家"><img src="assets/image/logo.png"
+                    class="logo"/></a></li>&emsp;&emsp;
+              &emsp;&emsp;&emsp;
+              <li><a href="">初審文件</a></li>
+              &emsp;&emsp;&emsp;
+
+
+              <li><div class="dropdown" >
+                <button class="dropbtn">覆審文件</button>
+                <div class="dropdown-content" style="left:0;">
+                  <a href="#">一般審核</a>
+                  <a href="#">急件審核</a>
+                </div>
+              </div></li>
+              
+              &emsp;&emsp;&emsp;
+              <li><a href="">申覆文件</a></li>
+              &emsp;&emsp;&emsp;
+              <li><a href="">繳費紀錄&emsp;</a></li>
+              &emsp;&emsp;&emsp;
+              <li><a href="">審查紀錄&emsp;</a></li>
+              &emsp;&emsp;&emsp;
+              <li><a href="">積分審查&emsp;</a></li>
+              &emsp;&emsp;&emsp;
+              <li><a href="">帳號管理&emsp;</a></li>
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;台灣復健醫學會，您好&emsp;&emsp;
+              <li><a href="">登出&emsp;</a></li>
+            </ul>
+          </header>
+    </div>
+    <div id="header"></div>
+    <!--照片跑馬燈-->
+    <div id="homeall">
+        <div>
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <img src="assets/image/ad.jpg" class="photo">
+                </div>
+        
+                <div class="mySlides fade">
+                    <img src="assets/image/ad2.jpg" class="photo">
+                </div>
+        
+                <div class="mySlides fade">
+                    <img src="assets/image/ad3.jpg" class="photo">
+                </div>
+                <div class="mySlides fade">
+                    <img src="assets/image/ad4.jpg" class="photo">
+                </div>
+        
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+            </div>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+
+        <div id="home1">
+            <div class="ann">
+                <a href="https://1966.gov.tw/LTC/cp-4108-69787-201.html">
+                    111-05-31 衛福部修正發布長期照顧機構設立標準
+                </a>
+            </div>
+            <div class="ann">
+                <a href="https://1966.gov.tw/LTC/cp-4108-69653-201.html">
+                    111-05-18 111年度社區金點獎(長期照顧服務)選拔開始囉！
+                </a>
+            </div>
+            <div class="ann">
+                <a href="https://1966.gov.tw/LTC/cp-4108-63478-201.html">
+                    110-10-06 長照2.0提供多元化服務，貼近失能民眾之需求
+                </a>
+            </div>
+            <div class="ann">
+                <a href="https://1966.gov.tw/LTC/cp-4108-63475-201.html">
+                    110-10-06 入住住宿式服務機構政府有補助！安心防疫無牽掛
+                </a>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!--footer-->
+
+    <footer class="footer">Copyright©2022 </footer>
+
+    <script src="assets/js/ad.js"></script>
+    <script>
+        $(function () {
+          $("#header").load("h3.html")
+          $("#footer").load("footer.html")
+        });
+      </script>
+
+
+</body>
+</html>

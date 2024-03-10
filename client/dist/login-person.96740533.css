@@ -1,0 +1,165 @@
+.account {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.otherlogin {
+  width: 250px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  display: flex;
+  position: absolute;
+  top: 5%;
+  right: 20%;
+}
+
+.system {
+  flex-direction: column;
+  display: flex;
+}
+
+.login1 {
+  width: 150px;
+  background-color: #98ffb7;
+  margin: 20px;
+  font-size: 14px;
+}
+
+.annouce {
+  width: 250px;
+  height: 400px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  display: flex;
+  position: absolute;
+  top: 40%;
+  right: 20%;
+}
+
+.tit {
+  font-size: 13px;
+}
+
+.inside {
+  height: 200%;
+  background-color: #f5f5f5;
+  border: 1px solid #000;
+  font-size: 13px;
+}
+
+.but {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.butlog {
+  width: 75px;
+  background-color: #98ffb7;
+  margin: 10px 30px 10px 10px;
+  font-size: 18px;
+}
+
+.butreg {
+  width: 75px;
+  background-color: #98ffb7;
+  margin: 10px 10px 10px 30px;
+  font-size: 18px;
+}
+
+.box {
+  float: right;
+  width: 200px;
+  height: 20px;
+  border-radius: 5px;
+  margin: 5px 10px 10px 30px;
+}
+
+.smalltitle {
+  color: #000;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.st1 {
+  height: 2px;
+  width: 110px;
+  background-color: #8bc3ed;
+  margin-left: 0;
+}
+
+.st2 {
+  height: 4px;
+  width: 180px;
+  background-color: #8bc3ed;
+  margin-left: 0;
+}
+
+.date {
+  margin-left: 500px;
+}
+
+.dash {
+  width: 950px;
+  height: 0;
+  border-bottom: 1px dashed #000;
+  margin-left: 0;
+}
+
+.za {
+  color: #000;
+  text-decoration: none;
+}
+
+.act {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #d3d3d3;
+  border-radius: 15px;
+  margin-left: 250px;
+  padding: 25px;
+  display: inline-block;
+}
+
+.act:last-child {
+  margin-top: 50px;
+}
+
+.right {
+  background-color: #f5f5f5;
+  border: 1px solid #000;
+  border-radius: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  display: flex;
+}
+
+.right2 {
+  height: 250px;
+  background-color: #f5f5f5;
+  border: 1px solid #000;
+  border-radius: 15px;
+  margin-top: 30px;
+  padding: 25px;
+}
+
+.zone {
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  background-color: #98ffb7;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+/*# sourceMappingURL=login-person.96740533.css.map */

@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>開課單位列表頁面 </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" text="text/css" href="assets/css/check.css">
+  <link rel="stylesheet" text="text/css" href="assets/css/openclass.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div>
+    Account:<span id="Accountback"></span>
+  </div>
+  <script>
+    const backacc = sessionStorage.getItem('Accountback');
+  
+    document.getElementById('Accountback').textContent = backacc;
+
+  </script>
+  <div class="container">
+    <div class="row he">
+      <div class="col OCtitle">
+        <span class="userTitleSpana h3">
+          開課單位列表
+        </span>
+        <div class="search">
+          <nav class="navbar">
+            <!-- <div class="container-fluid "> -->
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <!-- </div> -->
+          </nav>
+        </div>
+      </div>
+
+    </div>
+    <div class="outsideC">
+      <div class="butf">
+        <nav>
+          <div class="nav nav-tabs " id="nav-tab" role="tablist">
+            <button class="nav-link active col bott" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+              type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+              <h5>北部</h5>
+            </button>
+            <button class="nav-link col" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+              type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+              <h5>中部</h5>
+            </button>
+            <button class="nav-link col" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+              type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+              <h5>南部</h5>
+            </button>
+
+            <button class="nav-link col" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled"
+              type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">
+              <h5>東部</h5>
+            </button>
+            <button class="nav-link col" id="nav-island-tab" data-bs-toggle="tab" data-bs-target="#nav-island"
+              type="button" role="tab" aria-controls="nav-island" aria-selected="false">
+              <h5>離島</h5>
+            </button>
+          </div>
+        </nav>
+      </div>
+      <div class="aple">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+            tabindex="0">
+
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">開課單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass">
+                  
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">開課單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass2">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">開課單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass3">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">開課單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass4">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade " id="nav-island" role="tabpanel" aria-labelledby="nav-island-tab" tabindex="0">
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">開課單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass5">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+
+  <script>
+    $(function () {
+      $("#header").load("back.html")
+      $("#footer").load("footer.html")
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+
+  <!--Firebase-->
+<script type="module">
+  //import
+  import { initializeApp } from "firebase/app";
+          // TODO: Add SDKs for Firebase products that you want to use
+          // https://firebase.google.com/docs/web/setup#available-libraries
+  
+          // Your web app's Firebase configuration
+          const firebaseConfig = {
+              apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+              authDomain: "contactform-d7d05.firebaseapp.com",
+              databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+              projectId: "contactform-d7d05",
+              storageBucket: "contactform-d7d05.appspot.com",
+              messagingSenderId: "371807550240",
+              appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+          };
+  
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          import{
+              getFirestore, doc, getDoc, getDocs, collection, onSnapshot, updateDoc,setDoc,deleteDoc,where,query
+          }
+          from "firebase/firestore";
+  
+          const db = getFirestore();
+
+
+    
+  //北部
+  async function storedata()
+  {
+
+      const ref = collection(db, "申請中-開課單位資料");
+      const q = query(ref,where('縣市','in',['台北市', '桃園市', '新北士', '基隆市', '新竹市', '新竹縣', '宜蘭縣']),where('狀態','==','啟用'));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-openclassData.html" name="send">${element.data().開課單位名稱}</a></td>
+                    <td>${element.data().聯絡電話}</td>
+                    <td>${element.data().電子郵件}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-openclassData.html");
+
+        } 
+      }       
+  };
+
+  //中部
+  async function storedata2()
+  {
+
+      const ref = collection(db, "申請中-開課單位資料");
+      const q = query(ref,where('縣市','in',['台中市', '彰化縣', '南投縣', '雲林縣', '苗栗縣']),where('狀態','==','啟用'));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass2').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-openclassData.html" name="send">${element.data().開課單位名稱}</a></td>
+                    <td>${element.data().聯絡電話}</td>
+                    <td>${element.data().電子郵件}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-openclassData.html");
+
+        } 
+      }    
+  };
+
+  //南部
+  async function storedata3()
+  {
+
+      const ref = collection(db, "申請中-開課單位資料");
+      const q = query(ref,where('縣市','in',['嘉義縣', '屏東縣', '台南市', '高雄市', '澎湖縣', '嘉義市']));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass3').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-openclassData.html" name="send">${element.data().開課單位名稱}</a></td>
+                    <td>${element.data().聯絡電話}</td>
+                    <td>${element.data().電子郵件}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-openclassData.html");
+
+        } 
+      }    
+  };
+
+  //東部
+  async function storedata4()
+  {
+
+      const ref = collection(db, "申請中-開課單位資料");
+      const q = query(ref,where('縣市','in',['花蓮縣', '台東縣']),where('狀態','==','啟用'));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass4').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-openclassData.html" name="send">${element.data().開課單位名稱}</a></td>
+                    <td>${element.data().聯絡電話}</td>
+                    <td>${element.data().電子郵件}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-openclassData.html");
+
+        } 
+      }    
+  };
+
+
+    //離島
+    async function storedata5()
+  {
+
+      const ref = collection(db, "申請中-開課單位資料");
+      const q = query(ref,where('縣市','in',['金門縣', '連江縣']),where('狀態','==','啟用'));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass5').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-openclassData.html" name="send">${element.data().開課單位名稱}</a></td>
+                    <td>${element.data().聯絡電話}</td>
+                    <td>${element.data().電子郵件}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-openclassData.html");
+
+        } 
+      }    
+  };
+  
+  window.onload = function(){ storedata(); storedata2(); storedata3(); storedata4(); storedata5();}
+
+          
+
+
+</script>
+</body>
+
+</html>

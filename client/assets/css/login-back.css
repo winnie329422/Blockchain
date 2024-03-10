@@ -1,0 +1,81 @@
+.logall{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    border: solid 1px black;
+    height:400px;
+    width:38%;
+    background-color: lightgray;
+    line-height: 2;
+    letter-spacing: 1px;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#title3{
+    font-size: 40px;
+    text-align: center;
+}
+
+.account{
+    margin: 10px 0px 10px 126px ;
+    font-size: 20px;
+}
+
+.system{
+    border: solid 1px black;
+    border-radius: 10px;
+    height: 35%;
+    width: 15%;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 20%;
+    top: 5%;
+}
+
+.otherlogin{
+    margin: 20px;
+    
+}
+.login1{
+    margin: 20px;
+}
+
+.tit{
+    
+    font-size: 30px;
+}
+.inside{
+    border: solid 1px black;
+    height: 200%;
+}
+
+.but{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.butlog{
+    margin: 10px 30px 10px 10px;
+    font-size: 18px;
+    background-color: #98ffb7;
+    width: 75px;
+}
+.butreg{
+    margin: 10px 10px 10px 30px;
+}
+
+.txt{
+    width: 200px;
+    margin-left: 20px;
+}

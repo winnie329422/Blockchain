@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>積分管家</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../client/assets/css/courseing.css">
+  <link rel="stylesheet" type="text/css" href="../client/assets/css/h3.css">
+
+  <!-- <script type="text/javascript">
+    $(document).ready(function(){
+      $("#header").load("header.html");
+      $("#footer").load("footer.html");
+     });
+    </script> -->
+</head>
+
+<body>
+  <!-- 查看證書 -->
+  
+  <!-- Modal -->
+  <div class="modal modal-dialog-scrollable fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">足部護理-證書</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img class="img-fluid" src="assets/image/certificate.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 查看證書END -->
+  <div id="header"></div>
+  
+  <!--test-->
+  <div>
+   <span id="Account"></span>
+  </div>
+  <script>
+    const userAccount = sessionStorage.getItem('Account');
+  </script>
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <h5 class="sidenavtop">修課清單</h5>
+        <div class="sidenav">
+          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked
+              onclick="ing()">
+            <label class="btn" for="btnradio1">正在修習課程</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="six()">
+            <label class="btn" for="btnradio2">已修習課程</label>
+
+            <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="ago()">
+            <label class="btn" for="btnradio3">已修習課程<br>(歷史紀錄)</label> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-10">
+        <div id="ing">
+          <p class="courseTitle">正在修習課程</p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead style="border: solid black 1px;">
+                <tr style="background-color: #FFBC1D;">
+                  <th scope="col">課程類別</th>
+                  <th scope="col">課程名稱</th>
+                  <th scope="col">開課單位名稱</th>
+                  <th scope="col">上課日期</th>
+                  <th scope="col">上課地點</th>
+                  <th scope="col">預計獲得積分</th>
+                </tr>
+              </thead>
+              <tbody id="allclass">
+               
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- 正在修習 END-->
+        <!-- 已修習(6) -->
+        <div id="six">
+          <p class="courseTitle">已修習課程</p>
+          <div class="row firstrowback">
+            <div class="col-1">課程類別</div>
+            <div class="col-3">課程名稱</div>
+            <div class="col-2">開課單位名稱</div>
+            <div class="col-1">上課日期</div>
+            <div class="col-2">上課地點</div>
+            <div class="col-1">獲得積分</div>
+            <div class="col-1">獲得積分日期</div>
+            <!-- <div class="col-1">查看證書</div> -->
+          </div>
+          <!-- <div class="row contentrow">
+            <div class="col-1">專業課程</div>
+            <div class="col-2">身心障礙支持服務核心課程</div>
+            <div class="col-3">台灣長期照護專業協會</div>
+            <div class="col-2">2022/05/30-31</div>
+            <div class="col-1">中原大學教學大樓103教室</div>
+            <div class="col-1">2</div>
+            <div class="col-1">2022/04/05</div>
+            <div class="col-1"><button style="margin-left: 5px;" type="button" class="btn btn-info" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop">查看</button></div>
+          </div>           -->
+          <div id="show"></div>
+        </div>
+        <!-- 已修習(6) END-->
+        <!-- 已修習(歷史) -->
+        <!-- <div id="ago">
+          <p class="courseTitle">已修習課程(歷史紀錄)</p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead style="border: solid black 1px;">
+                <tr style="background-color: #FFBC1D;">
+                  <th scope="col">課程類別</th>
+                  <th scope="col">課程名稱</th>
+                  <th scope="col">開課單位名稱</th>
+                  <th scope="col">上課日期</th>
+                  <th scope="col">上課地點</th>
+                  <th scope="col">獲得積分</th>
+                  <th scope="col">獲得積分日期</th>
+                  <th scope="col">查看證書</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">專業課程</th>
+                  <td>身心障礙支持服務核心課程</td>
+                  <td>台灣長期照護專業協會</td>
+                  <td>2022/05/30-31</td>
+                  <td>中原大學教學大樓103教室</td>
+                  <td class="futurePonit">2</td>
+                  <td>2022/04/05</td>
+                  <td><button type="button" class="btn btn-info" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">查看</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">專業品質</th>
+                  <td>感染管制</td>
+                  <td>台灣長期照護專業協會</td>
+                  <td>2022/05/30-31</td>
+                  <td>中原大學教學大樓103教室</td>
+                  <td class="futurePonit">2</td>
+                  <td>2022/04/05</td>
+                  <td><button type="button" class="btn btn-info" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">查看</button></td>
+                </tr>
+                <tr>
+                  <th scope="row">專業倫理</th>
+                  <td>多元族群文化</td>
+                  <td>台灣長期照護專業協會</td>
+                  <td>2022/05/30-31</td>
+                  <td>中原大學教學大樓103教室</td>
+                  <td class="futurePonit">2</td>
+                  <td>2022/04/05</td>
+                  <td><button type="button" class="btn btn-info" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">查看</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div> -->
+        <!-- 已修習(歷史) END-->
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+  <script>
+    $(function () {
+      $("#header").load("h4.html")
+      $("#footer").load("footer.html")
+    });
+    // 顯示哪一個
+    function ing() {
+      $('#ing').css({
+        'display': 'flex'
+      })
+      $('#six').css({
+        'display': 'none'
+      })
+      $('#ago').css({
+        'display': 'none'
+      })
+    }
+
+    function six() {
+      $('#six').css({
+        'display': 'flex'
+      })
+      $('#ing').css({
+        'display': 'none'
+      })
+      $('#ago').css({
+        'display': 'none'
+      })
+    }
+
+    function ago() {
+      $('#ago').css({
+        'display': 'flex'
+      })
+      $('#ing').css({
+        'display': 'none'
+      })
+      $('#six').css({
+        'display': 'none'
+      })
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+    <script type="module" src="courseing.js"></script>
+
+     <!--Firebase-->
+<script type="module">
+  //import
+  import { initializeApp } from "firebase/app";
+          // TODO: Add SDKs for Firebase products that you want to use
+          // https://firebase.google.com/docs/web/setup#available-libraries
+  
+          // Your web app's Firebase configuration
+          const firebaseConfig = {
+              apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+              authDomain: "contactform-d7d05.firebaseapp.com",
+              databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+              projectId: "contactform-d7d05",
+              storageBucket: "contactform-d7d05.appspot.com",
+              messagingSenderId: "371807550240",
+              appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+          };
+  
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          import{
+              getFirestore, doc, getDoc, getDocs, collection, onSnapshot, updateDoc,setDoc,deleteDoc,where,query
+          }
+          from "firebase/firestore";
+  
+          const db = getFirestore();
+
+
+          const ClassName = localStorage.getItem('classname');
+          // document.getElementById('classname').value = ClassName;
+          
+          async function storedata()
+          {
+              const ref = collection(db, "報名資料");
+              const q = query(ref,where('帳號','==',userAccount),where('是否繳費','==','已繳費'),where('是否通過','==',''));
+              const querySnapshot = await getDocs(q);
+              // const querySnapshot = await getDocs(collection(db,"上傳課程資料"));
+              var stdNo=0;
+          querySnapshot.forEach(function(element)
+          {
+            
+              document.querySelector('#allclass').innerHTML+=`
+                <tr>
+                  <th scope="row">${element.data().課程類別}</th>
+                  <td>${element.data().課程名稱}</td>
+                  <td>${element.data().開課單位}</td>
+                  <td>${element.data().上課日期}</td>
+                  <td>${element.data().上課地點}</td>
+                  <td class="futurePonit">${element.data().積分數}</td>
+                </tr>`      
+          });
+          };
+          
+  window.onload = storedata;
+
+
+</script>
+
+</body>
+
+</html>

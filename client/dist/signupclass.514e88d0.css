@@ -1,0 +1,31 @@
+p {
+  font-size: 20px;
+}
+
+.winnie {
+  justify-content: center;
+  display: flex;
+}
+
+.shelfclassbtn5 {
+  width: 180px;
+  background-color: #98ffb7;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.gogo {
+  background-color: #ffbc1d;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.tt {
+  font-size: 40px;
+}
+
+.ww {
+  font-size: 28px;
+}
+
+/*# sourceMappingURL=signupclass.514e88d0.css.map */

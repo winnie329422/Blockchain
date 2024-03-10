@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="stylesheet" text="text/css" href="../client/assets/css/classlistlist.css">
+
+  <title>進行中課程清單</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+
+  <div id="header"></div>
+  <div class="container">
+<!--test-->
+<div>
+  Account:<span id="Acc"></span>
+</div>
+<script>
+  const openAcc = sessionStorage.getItem('Acc');
+
+  document.getElementById('Acc').textContent = openAcc;
+  const openName = sessionStorage.getItem('open');
+</script>
+    <div class="angry">
+
+      <div class="aa">
+
+        <nav class="navbar navbar-expand-lg navbar-custom">
+          <div class="container-fluid">
+            <div class="row ha">
+              <div class="col">
+                <h3>進行中課程清單</h3>
+              </div>
+            </div>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+
+      <div class="outsideB">
+        <div class="table-responsive">
+          <table class="table">
+            <thead style="border: solid black 1px;">
+              <tr style="background-color: #FFBC1D;">
+                <th scope="col">#</th>
+                <th scope="col">課程類別</th>
+                <th scope="col">課程名稱</th>
+                <th scope="col">上課地點</th>
+                <th scope="col">上課日期</th>
+                <th scope="col">積分數</th>
+                <th scope="col">修課名單</th>
+              </tr>
+            </thead>
+            <tbody id="allclass">
+              <!-- <tr>
+                <th scope="row">1</th>
+                <td>c12345</td>
+                <td>身心障礙支持服務核心課程</td>
+                <td>線上</td>
+                <td>111/4/22</td>
+                <td>2</td>
+                <td><a href="passclass-student.html"><button type="button" class="btn btn-info">查看</button></a></td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>c12345</td>
+                <td>身心障礙支持服務核心課程</td>
+                <td>線上</td>
+                <td>111/4/22</td>
+                <td>2</td>
+                <td><a href="passclass-student.html"><button type="button" class="btn btn-info">查看</button></a></td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>c12345</td>
+                <td>身心障礙支持服務核心課程</td>
+                <td>線上</td>
+                <td>111/4/22</td>
+                <td>2</td>
+                <td><a href="passclass-student.html"><button type="button" class="btn btn-info">查看</button></a></td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+
+  <!-- <script src="../assets/js/button.js"></script> -->
+
+  <script>
+    $(function () {
+      $("#header").load("h3.html")
+      $("#footer").load("footer.html")
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+
+  <!--Firebase-->
+<script type="module">
+  //import
+  import { initializeApp } from "firebase/app";
+          // TODO: Add SDKs for Firebase products that you want to use
+          // https://firebase.google.com/docs/web/setup#available-libraries
+  
+          // Your web app's Firebase configuration
+          const firebaseConfig = {
+              apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+              authDomain: "contactform-d7d05.firebaseapp.com",
+              databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+              projectId: "contactform-d7d05",
+              storageBucket: "contactform-d7d05.appspot.com",
+              messagingSenderId: "371807550240",
+              appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+          };
+  
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          import{
+              getFirestore, doc, getDoc, getDocs, collection, onSnapshot, updateDoc,setDoc,deleteDoc,where,query
+          }
+          from "firebase/firestore";
+  
+          const db = getFirestore();
+
+
+    
+          
+  async function storedata()
+  {
+      
+      const ref = collection(db, "報名資料");
+      const q = query(ref,where('是否繳費','==',"未繳費"));
+      const querySnapshot = await getDocs(q);
+
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass').innerHTML+=`
+      <tr>
+                <th scope="row">${++stdNo}</th>
+                <td>${element.data().課程類別}</td>
+                <td id="classname">${element.data().課程名稱}</td>
+                <td>${element.data().上課地點}</td>
+                <td>${element.data().上課日期}</td>
+                <td>${element.data().積分數}</td>
+                <td><button type="button" class="btn btn-info"  name="send" id="${element.data().課程名稱}">查看</button></td>
+              </tr>`      
+  });
+  // <a href="passclass-student.html"></a>
+        //重點！！！！
+        const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.id);
+        //localStorage
+        const Class = this.id;//div
+        console.log(Class);
+        console
+        // const Teacher = document.getElementById('teacher').innerText;
+        // const Type = document.getElementById('type').innerText;
+        // const Charge = document.getElementById('charge').innerText;
+        // const Open = document.getElementById('open').innerText;
+        // const Date = document.getElementById('date').innerText;
+        // const Credit = document.getElementById('credit').innerText;
+
+        localStorage.setItem('classname',Class);
+        //localStorage.setItem('key',data)
+        window.location.assign("passclass-student.html");
+
+        } 
+      }        
+  };
+  
+  window.onload = storedata;
+
+          
+
+
+</script>
+</body>
+
+</html>

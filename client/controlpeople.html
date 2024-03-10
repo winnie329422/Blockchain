@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>後台人員管理 </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+  <link rel="stylesheet" text="text/css" href="../client/assets/css/studentlist.css">
+</head>
+
+<body>
+  <div id="header"></div>
+  <div>
+    Account:<span id="Accountback"></span>
+  </div>
+  <script>
+    const backacc = sessionStorage.getItem('Accountback');
+  
+    document.getElementById('Accountback').textContent = backacc;
+
+  </script>
+  <!-- 新增後台人員 -->
+  <!-- Modal -->
+  <div class="modal modal-dialog-scrollable fade" id="NEWstaticBackdrop" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="NEWstaticBackdropLabel">新增後台人員</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="">
+          <div class="modal-body">
+            <div class="addLine"><label>人員姓名：</label>
+              <input class="MFControl" type="text"  id="name" required></div>
+            <div class="addLine"><label>電話：</label><input class="MFControl"  id="tele" type="text" required></div>
+            <div class="addLine"><label>帳號：</label><input class="MFControl" id="acc" type="text" required></div>
+            <div class="addLine"><label>密碼：</label><input class="MFControl" type="password" id="pass" required></div>
+            <div class="addLine"><label>電子郵件：</label><input class="MFControl" type="email" id="email" required></div>
+            <!-- <div class="addLine"><label>身分別：</label>
+              <select required class="" aria-label="Default select example">
+                <option value="1" selected>管理員</option>
+                <option value="2">一般成員</option>
+              </select></div> -->
+          </div>
+          <div class=" modal-footer">
+            <input type="submit" class="addOCpersonBtn" value="確定新增" id="addbtn">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 編輯 -->
+  <!-- <div class="modal modal-dialog-scrollable fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">編輯後台人員</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="">
+          <div class="modal-body">
+            <div class="addLine"><label>後台人員姓名：</label>
+              <input class="FControl" type="text" required placeholder="黃小曼"></div>
+            <div class="addLine"><label>帳號：</label><input class="FControl" type="email" required placeholder="hihi">
+            </div>
+            <div class="addLine"><label>密碼：</label><input class="FControl" type="text" required placeholder="123456">
+            </div>
+            <div class="addLine"><label>聯絡電話：</label><input class="FControl" type="text" required
+                placeholder="0987654321"></div>
+
+            <div class="addLine"><label>身分別：</label><select id="selectwho" class="form-select"
+                aria-label="Default select example">
+                <option value="1" selected>管理員</option>
+                <option value="2">一般成員</option>
+              </select>
+            </div>
+            <div class="addLine"><label>密碼：</label><input class="FControl" type="text" required placeholder="123456789">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" class="addOCpersonBtn" value="儲存">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+  <!-- 新增承辦人員END -->
+  <div class="container">
+
+    <div class="angry">
+
+      <div class="aa">
+
+        <nav class="navbar navbar-expand-lg navbar-custom">
+          <div class="container-fluid">
+            <div class="row ha">
+              <div class="col">
+                <div class="OCperson">
+                  <h3>後台人員管理</h3>
+                  <button class="adddPerson" data-bs-toggle="modal" data-bs-target="#NEWstaticBackdrop"
+                    type="button">新增</button>
+                </div>
+              </div>
+            </div>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+
+      <div class="outsideB">
+        <div class="table-responsive">
+          <table class="table">
+            <thead style="border: solid black 1px;">
+              <tr style="background-color: #FFBC1D;">
+                <th scope="col">#</th>
+                <th scope="col">姓名</th>
+                <th scope="col">帳號</th>
+                <th scope="col">密碼</th>
+                <th scope="col">聯絡電話</th>
+                <th scope="col">電子郵件</th>
+                <!-- <th scope="col">身分別</th> -->
+                <!-- <th scope="col">編輯</th> -->
+              </tr>
+            </thead>
+            <tbody id="tbody1">
+              <!-- <tr>
+                <form action="">
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>J123456789</td> -->
+                  <!-- <td>hihi</td>
+                  <td><input type="password" readonly="readonly" id="mempassword" class="MM FControl"
+                      placeholder="******">
+                  </td>
+                  <td>0912345678</td>
+                  <td>winnie@gmail.com</td> -->
+
+                  <!-- <td>
+                    <button class="adminOpenClassEditBtn btn btn-info" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop" type="button">編輯資料</button>
+                    <div class="submitButton"><input class="btn btn-info" type="submit" value="完成"></div>
+                    <button id="revise1" type="button" class="btn btn-info" style="background-color: #E8CD6E;"
+                      onclick="editPassword()">修改密碼</button>
+                    <button id="see1" type="button" class="btn btn-info" style="background-color: #F33737;">刪除</button>
+                  </td> -->
+                <!-- </form>
+              </tr> -->
+              <!-- <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+         
+              <td>markkk</td>
+              <td>@mdo</td>
+              <td>0970028385</td> -->
+              <!-- <td><select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select></td> -->
+              <!-- <td>
+                  <button type="button" class="btn btn-info" style="background-color: lightblue;"
+                    onclick="editMember()">編輯資料</button>
+                  <button type="button" class="btn btn-info" style="background-color: #E8CD6E;">修改密碼</button>
+                  <button type="button" class="btn btn-info" style="background-color: #F33737;">刪除</button>
+                </td> -->
+              <!-- </tr> -->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+
+  <script>
+    $(function () {
+      $("#header").load("back.html")
+      $("#footer").load("footer.html")
+    });
+
+    // function editMember() {
+    //   $('#memaccount,#memphone').css({
+    //     'border-width': '1px',
+    //     'padding': '0.375rem 2.25rem 0.375rem 0.75rem',
+    //     'border-radius': '0.375rem',
+    //     'background-color': 'white',
+    //   });
+    //   $('#memaccount').css({
+    //     'width': '150px',
+    //     'margin-right': '10px'
+    //   });
+    //   $('.FControl').css({
+    //     'border-color': '#ced4da'
+    //   });
+
+    //   $('.M-password').css({
+    //     'display': 'flex'
+    //   })
+    //   $('.submitButton').css({
+    //     'display': 'flex'
+    //   })
+    //   $('#edit1, #revise1, #see1').css({
+    //     'display': 'none'
+    //   })
+    //   $('.asd').css({
+    //     'display': 'none'
+    //   })
+    //   $('#memaccount').removeAttr("readonly");
+    //   $('#mempassword').removeAttr("readonly");
+    //   $('#mememail').removeAttr("readonly");
+    //   $('#memid').removeAttr("readonly");
+    //   $('#memphone').removeAttr("readonly");
+    //   $('#selectwho').removeAttr("disabled");
+    //   $('#startdate').removeAttr("disabled");
+    // }
+
+    // function editPassword() {
+    //   $('#mempassword').css({
+    //     'border-width': '1px',
+    //     'padding': '0.375rem 2.25rem 0.375rem 0.75rem',
+    //     'border-radius': '0.375rem',
+    //     'background-color': 'white'
+    //   });
+    //   $('.FControl').css({
+    //     'border-color': '#ced4da'
+    //   });
+
+    //   $('.M-password').css({
+    //     'display': 'flex'
+    //   })
+    //   $('.submitButton').css({
+    //     'display': 'flex'
+    //   })
+    //   $('#edit1, #revise1, #see1').css({
+    //     'display': 'none'
+    //   })
+    //   $('.asd').css({
+    //     'display': 'none'
+    //   })
+    //   $('#memaccount').removeAttr("readonly");
+    //   $('#mempassword').removeAttr("readonly");
+    //   $('#mememail').removeAttr("readonly");
+    //   $('#memid').removeAttr("readonly");
+    //   $('#memphone').removeAttr("readonly");
+    // }
+  </script>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+
+<script type="module">
+  //import
+  import { initializeApp } from "firebase/app";
+          // TODO: Add SDKs for Firebase products that you want to use
+          // https://firebase.google.com/docs/web/setup#available-libraries
+  
+          // Your web app's Firebase configuration
+          const firebaseConfig = {
+              apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+              authDomain: "contactform-d7d05.firebaseapp.com",
+              databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+              projectId: "contactform-d7d05",
+              storageBucket: "contactform-d7d05.appspot.com",
+              messagingSenderId: "371807550240",
+              appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+          };
+  
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          import{
+              getFirestore, doc, getDoc, getDocs, collection, onSnapshot, updateDoc,setDoc,deleteDoc
+          }
+          from "firebase/firestore";
+  
+          const db = getFirestore();
+
+
+    
+          
+  //filling the table
+          var stdNo = 0;
+          var tbody = document.getElementById('tbody1');
+          var stdList = [];
+  
+          function AddItemToTable(name, tele, account, password, email){
+              let tr = document.createElement("tr");
+              let td1 = document.createElement("td");
+              let td2 = document.createElement("td");
+              let td3 = document.createElement("td");
+              let td4 = document.createElement("td");
+              let td5 = document.createElement("td");
+              let td6 = document.createElement("td");
+      
+
+              stdList.push([name, tele, account, password, email]);
+
+  
+              td1.innerHTML= ++stdNo;
+              td2.innerHTML= name;
+              td3.innerHTML= account;
+              td4.innerHTML= password;
+              td5.innerHTML= tele;
+              td6.innerHTML= email;
+
+              tr.appendChild(td1);
+              tr.appendChild(td2);
+              tr.appendChild(td3);
+              tr.appendChild(td4);
+              tr.appendChild(td5);
+              tr.appendChild(td6);
+  
+              tbody.appendChild(tr);
+          }
+  
+          function AddAllItemsToTable(TheStudent){
+              document.getElementById('tbody1').innerHTML="";;
+              stdNo = 0;
+              TheStudent.forEach(element => {
+                  AddItemToTable(element.後台人員姓名, element.電話, element.帳號, element.密碼, element.電子郵件);
+              });
+          }
+
+      //     window.FillTboxes=(index)=>{
+      //     if(index==null){
+      //         name.value = "";
+      //         tele.value = "";
+      //         account.value = "";
+      //         password.value = "";
+      //         permission.value = "";
+      //     }
+      //     else{
+      //         --index; 
+      //         name.value = stdList[index][0];
+      //         tele.value = stdList[index][1];
+      //         account.value = stdList[index][2];
+      //         password.value = stdList[index][3];
+      //         permission.value = stdList[index][4];
+      //         account.disabled=true;
+      //     }
+      // }
+
+          //get all data
+          async function GetAllDataOnce(){
+              const querySnapshot = await getDocs(collection(db,"後台人員資料"));
+  
+              var students = [];
+              querySnapshot.forEach(doc =>{
+                  students.push(doc.data());
+              });
+  
+              AddAllItemsToTable(students);
+          }
+  
+          window.onload = GetAllDataOnce;
+
+//新增表單裡的textbox
+let name = document.getElementById("name");
+let tele = document.getElementById("tele");
+let account = document.getElementById("acc");
+let password = document.getElementById("pass");
+let Email = document.getElementById("email");
+
+// //編輯表單裡的textbox
+// let formname = document.getElementById("formname");
+// let formmail = document.getElementById("formmail");
+// let formjob = document.getElementById("formjob");
+// let formtele = document.getElementById("formtele");
+// let formaccount = document.getElementById("formaccount");
+// let formpassword = document.getElementById("formpassword");
+
+// //開課單位編輯資料
+// let Name = document.getElementById("name");
+// let Person = document.getElementById("person");
+// let Phone = document.getElementById("phone");
+// let Fax = document.getElementById("fax");
+// let Address = document.getElementById("address");
+// let Email = document.getElementById("email");
+// let Num = document.getElementById("num");
+// let Bank = document.getElementById("bank");
+
+//button
+let AddBtn = document.getElementById("addbtn");
+let SelBtn = document.getElementById("select");
+let UpBtn = document.getElementById("update");
+let DelBtn = document.getElementById("delete");
+let surebtn = document.getElementById("sure");
+
+//set the data
+async function set(){
+      var ref= doc(db,"後台人員資料", account.value);
+
+      const docRef = await setDoc(
+          ref, {
+            後台人員姓名: name.value,
+            電話: tele.value,
+            帳號: account.value,
+            密碼: password.value,
+            電子郵件: Email.value
+          }
+      )
+      .then(()=>{
+          alert("新增成功!!");
+          window.location.reload();
+      })
+      .catch((error)=>{
+          alert("Unsuccessful operation, error"+error);
+      });
+   }
+
+
+//    async function update(){
+//           var ref = doc(db,"申請中-開課單位承辦人員資料", acc1.value);
+
+//           await updateDoc(
+//               ref,{
+//                 承辦人員名字: name1.value,
+//                 帳號: acc1.value,
+//                 密碼: pass1.value,
+//                 承辦人員email:mail1.value,
+//                 申請人電話: tele1.value,
+//                 職稱: job1.value             
+//                }
+//           )
+//           .then(()=>{
+//           alert("data added successfully");
+//           })
+//           .catch((error)=>{
+//               alert("Unsuccessful operation, error"+error);
+//           });
+//           window.location.reload();
+//       }
+  
+
+// async function deletedocument(){
+//           var ref = doc(db,"申請中-開課單位承辦人員資料", acc1.value);
+//           const docSnap = await getDoc(ref);
+
+//           if(!docSnap.exists()){
+//               alert("Document does not exists");
+//               return;
+//       }
+//           await deleteDoc(ref)
+//           .then(()=>{
+//           alert("data delete successfully");
+//           })
+//           .catch((error)=>{
+//               alert("Unsuccessful operation, error"+error);
+//           });
+//       }
+      
+
+AddBtn.addEventListener("click",(e) =>{
+   e.preventDefault();
+   set();
+ });
+
+
+// UpBtn.addEventListener("click",(e) =>{
+//   e.preventDefault();
+//   update();
+// });
+
+
+//   DelBtn.addEventListener("click",(e) =>{
+//   e.preventDefault();
+//   deletedocument();
+// });
+
+
+
+
+</script>
+</body>
+
+</html>

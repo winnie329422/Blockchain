@@ -1,0 +1,1 @@
+{"mappings":"AAAA;;;;AAIA;;;;;AAKA","sources":["assets/css/all.css"],"sourcesContent":[".FirstuserTitle {\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.userTitle {\r\n  margin-top: 30px;\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.userTitleSpan {\r\n  border-bottom: solid 5px #76C784;\r\n}"],"names":[],"version":3,"file":"mypoint.761f8ff2.css.map","sourceRoot":"/__parcel_source_root/"}

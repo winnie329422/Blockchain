@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../client/assets/css/login-back.css">
+    <link rel="stylesheet" type="text/css" href="../client/assets/css/indexh.css">
+    <link rel="stylesheet" type="text/css" href="../client/assets/css/footer.css">
+    <title>後台登入</title>
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <!--header-->
+    <div id="header"></div>
+
+    <div class="container">
+        <div class="logall">
+            <div class="login">
+                <div id="title3">
+                    系統管理員您好
+                </div>
+                <div class="account">
+                    帳號
+                    <input name="acc" required class="txt" id="acc">
+                </div>
+                <div class="account">
+                    密碼
+                    <input name="pass" type="password" required class="txt" id="pass">
+                </div>
+                <div class="but">
+                    <button class="butlog" id="logBtn">
+                        登入
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div id="footer">
+
+        <script>
+            $(function () {
+              $("#header").load("indexh.html")
+              $("#footer").load("footer.html")
+            });
+          </script>
+
+<!----------------------------------------firebase------------------------------------------------>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+  import { initializeApp } from "firebase/app";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+  authDomain: "contactform-d7d05.firebaseapp.com",
+  databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+  projectId: "contactform-d7d05",
+  storageBucket: "contactform-d7d05.appspot.com",
+  messagingSenderId: "371807550240",
+  appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  
+  import{
+  getFirestore, doc, setDoc, collection, addDoc, getDoc,updateDoc,deleteDoc,getDocs
+  }
+  from "firebase/firestore";
+  
+  const db = getFirestore();
+
+let Account = document.getElementById("acc");
+let Password = document.getElementById("pass");
+let login = document.getElementById("logBtn");
+
+
+  
+//登入控制
+    async function get(){
+    var ref = doc(db,"後台人員資料", Account.value);
+    const docSnap = await getDoc(ref);
+
+    if(docSnap.exists()){
+       if(Password.value === docSnap.data().密碼){
+        alert("登入成功");
+        // window.location.assign("studentclasslist.html");
+        const backacc = Account.value;
+        const backname = docSnap.data().後台人員姓名;
+        //sessionStorage
+        sessionStorage.setItem('Accountback',backacc);
+        sessionStorage.setItem('BackName',backname);
+
+        window.location.assign("allaccout-1.html");
+       }
+       else{
+        alert("帳號密碼有誤");
+       }
+    }
+    else{
+        alert("帳號密碼有誤");
+    }
+    }
+
+
+    // function getsession(){
+    //catch session
+    
+    // }
+   
+     
+    login.addEventListener("click",(e) =>{
+    e.preventDefault();
+    get();
+  });
+
+  </script>
+</body>
+
+</html>

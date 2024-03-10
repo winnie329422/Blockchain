@@ -1,0 +1,128 @@
+.admincheckOpenClassEditBtn {
+  width: 80px;
+  background-color: #80c6ff;
+  border: 1px solid #4c7cb6;
+  border-radius: 5px;
+}
+
+.admincheckOpenClassDelBtn {
+  width: 100px;
+  background-color: #ff8080;
+  border: 1px solid #4c7cb6;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+
+.table {
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.modal-header, .modal-footer {
+  background-color: #ecefe8;
+}
+
+.addLine {
+  width: 100%;
+}
+
+.addLine input {
+  padding: .375rem 2.25rem .375rem .75rem;
+}
+
+.FControl {
+  width: 60%;
+  border-width: 1px;
+  border-style: solid #ced4da;
+  -moz-padding-start: calc(.75rem - 3px);
+  color: #212529;
+  appearance: none;
+  background-color: #0000;
+  background-position: right .75rem center;
+  background-repeat: no-repeat;
+  background-size: 16px 12px;
+  border-radius: .375rem;
+  margin-bottom: 10px;
+  padding: .375rem 2.25rem .375rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.MM {
+  border-width: 0;
+  border-bottom-style: solid;
+}
+
+#submit {
+  background-color: #ff8080;
+  border: 1px solid #4c7cb6;
+  border-radius: 5px;
+  padding: 5px 15px;
+  display: none;
+}
+
+.adminOpenClassEditBtn {
+  width: 60px;
+  background-color: #80c6ff;
+  border: 1px solid #4c7cb6;
+  border-radius: 5px;
+}
+
+.adminOpenClassDelBtn {
+  width: 60px;
+  background-color: #ff8080;
+  border: 1px solid #4c7cb6;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+
+.adddPerson {
+  width: 60px;
+  background-color: #80c6ff;
+  border: 1px solid #4c7cb6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.addOCpersonBtn {
+  width: 100px;
+  color: #fff;
+  background-color: #e75e5e;
+  border: 1px solid #4c7cb6;
+  border-radius: 5px;
+  padding: 5px 0;
+}
+
+.addOCpersonBtn:hover {
+  background-color: #ce4949;
+}
+
+.OCperson {
+  margin-top: 20px;
+  display: flex;
+}
+
+.container {
+  width: 80%;
+}
+
+.OCcontent {
+  background-color: #ecefe8;
+  border-radius: 10px;
+  padding: 20px 30px;
+}
+
+.adminTitle {
+  margin-left: 30px;
+  font-weight: bold;
+}
+
+.adminInsideTitle {
+  font-size: large;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=account-class.e3943cba.css.map */

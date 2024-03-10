@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="stylesheet" text="text/css" href="../client/assets/css/classlistlist.css">
+
+  <title>我的課程</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+
+<body>
+
+  <div id="header"></div>
+  <div class="container">
+    <div>
+     <span id="Account"></span>
+    </div>
+    <script>
+      const userAccount = sessionStorage.getItem('Account');
+    
+    </script>
+    <div class="angry">
+
+      <div class="aa">
+
+        <nav class="navbar navbar-expand-lg navbar-custom">
+          <div class="container-fluid">
+            <div class="row ha">
+              <div class="col">
+                <h3>我的課程</h3>
+              </div>
+            </div>
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+
+      <div class="outsideB">
+        <div class="table-responsive">
+          <table class="table">
+            <thead style="border: solid black 1px;">
+              <tr style="background-color: #FFBC1D;">
+                <th scope="col">#</th>
+                <th scope="col">課程類別</th>
+                <th scope="col">課程名稱</th>
+                <th scope="col">上課地點</th>
+                <th scope="col">上課日期</th>
+                <th scope="col">積分數</th>
+                <th scope="col">是否繳費</th>
+              </tr>
+            </thead>
+            <tbody id="tbody1">
+              <!-- <tr>
+                <th scope="row">1</th>
+                <td>c12345</td>
+                <td>身心障礙支持服務核心課程</td>
+                <td>線上</td>
+                <td>111/4/22</td>
+                <td>2</td>
+                <td>已繳費</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>c12345</td>
+                <td>身心障礙支持服務核心課程</td>
+                <td>線上</td>
+                <td>111/4/22</td>
+                <td>2</td>
+                <td>未繳費</td>
+              </tr> -->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+
+
+  <script>
+    $(function () {
+      $("#header").load("h4.html")
+      $("#footer").load("footer.html")
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+</body>
+<!--Firebase-->
+<script type="module">
+  //import
+  import { initializeApp } from "firebase/app";
+          // TODO: Add SDKs for Firebase products that you want to use
+          // https://firebase.google.com/docs/web/setup#available-libraries
+  
+          // Your web app's Firebase configuration
+          const firebaseConfig = {
+              apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+              authDomain: "contactform-d7d05.firebaseapp.com",
+              databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+              projectId: "contactform-d7d05",
+              storageBucket: "contactform-d7d05.appspot.com",
+              messagingSenderId: "371807550240",
+              appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+          };
+  
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          import{
+              getFirestore, doc, getDoc, getDocs, collection, onSnapshot, updateDoc,setDoc,deleteDoc,where,query
+          }
+          from "firebase/firestore";
+  
+          const db = getFirestore();
+
+
+    
+          
+  //filling the table
+          var stdNo = 0;
+          var tbody = document.getElementById('tbody1');
+          var stdList = [];
+  
+          function AddItemToTable(type, classname, place, date, credit, charge){
+              let tr = document.createElement("tr");
+              let td1 = document.createElement("td");
+              let td2 = document.createElement("td");
+              let td3 = document.createElement("td");
+              let td4 = document.createElement("td");
+              let td5 = document.createElement("td");
+              let td6 = document.createElement("td");
+              let td7 = document.createElement("td");
+             
+
+              stdList.push([type, classname, place, date, credit, charge]);
+
+  
+              td1.innerHTML= ++stdNo;
+              td2.innerHTML= type;
+              td3.innerHTML= classname;
+              td4.innerHTML= place;
+              td5.innerHTML= date;
+              td6.innerHTML= credit;
+              td7.innerHTML= charge;
+
+              tr.appendChild(td1);
+              tr.appendChild(td2);
+              tr.appendChild(td3);
+              tr.appendChild(td4);
+              tr.appendChild(td5);
+              tr.appendChild(td6);
+              tr.appendChild(td7);
+             
+  
+              tbody.appendChild(tr);
+          }
+  
+          function AddAllItemsToTable(TheStudent){
+              document.getElementById('tbody1').innerHTML="";
+              stdNo = 0;
+              TheStudent.forEach(element => {
+                  AddItemToTable(element.課程類別, element.課程名稱, element.上課地點, element.上課日期, element.積分數, element.是否繳費);
+              });
+          }
+          console.log(userAccount);
+          //get all data
+          async function GetAllDataOnce(){
+              const ref = collection(db, "報名資料");
+              const q = query(ref,where('帳號','==',userAccount),where('是否通過','==',""));
+              const querySnapshot = await getDocs(q);
+  
+              var students = [];
+              
+              querySnapshot.forEach(doc =>{
+                  students.push(doc.data());
+              });
+  
+              AddAllItemsToTable(students);
+          }
+  
+          window.onload = GetAllDataOnce;
+
+
+
+
+
+
+</script>
+</html>

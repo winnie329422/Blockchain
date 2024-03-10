@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>長照繼續教育認可單位列表頁面 </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" text="text/css" href="../client/assets/css/check.css">
+  <link rel="stylesheet" text="text/css" href="../client/assets/css/openclass.css">
+  <link rel="stylesheet" type="text/css" href="../client/assets/css/admin-openclassData.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div>
+    Account:<span id="Accountback"></span>
+  </div>
+  <script>
+    const backacc = sessionStorage.getItem('Accountback');
+  
+    document.getElementById('Accountback').textContent = backacc;
+
+  </script>
+
+  <!-- Modal -->
+  <div class="modal modal-dialog-scrollable fade" id="NEWstaticBackdrop" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="NEWstaticBackdropLabel">新增認證單位資料</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="">
+          <div class="modal-body">
+            <div class="addLine"><label>認證單位資料名稱：</label>
+              <input class="FControl" type="text" required id="name"></div>
+            <div class="addLine"><label>負責人：</label><input class="FControl" required id="person"/></div>
+            <div class="address">地址：<select class="form-select-sm" aria-label="Default select example" id="country" required>
+              <option value="">請選擇</option>
+              <optgroup label="北部">
+                <option value="台北市">台北市</option>
+                <option value="新北市">新北市</option>
+                <option value="桃園市">桃園市</option>
+                <option value="基隆市">基隆市</option>
+                <option value="新竹市">新竹市</option>
+                <option value="新竹縣">新竹縣</option>
+                <option value="宜蘭縣">宜蘭縣</option>
+            </optgroup>
+            <optgroup label="中部">
+                <option value="台中市">台中市</option>
+                <option value="苗栗縣">苗栗縣</option>
+                <option value="台中市">台中市</option>
+                <option value="彰化縣">彰化縣</option>
+                <option value="南投縣">南投縣</option>
+                <option value="雲林縣">雲林縣</option>
+            </optgroup>
+            <optgroup label="南部">
+                <option value="台南市">台南市</option>
+                <option value="高雄市">高雄市</option>
+                <option value="嘉義縣">嘉義縣</option>
+                <option value="嘉義市">嘉義縣</option>
+                <option value="屏東縣">屏東縣</option>
+                <option value="澎湖縣">澎湖縣</option>
+            </optgroup>
+            <optgroup label="東部">
+                <option value="花蓮縣">花蓮縣</option>
+                <option value="台東縣">台東縣</option>
+            </optgroup>
+            <optgroup label="離島">
+                <option value="金門縣">金門縣</option>
+                <option value="連江縣">連江縣</option>
+            </optgroup>   
+              </select>
+              <input type="text" id="address" class="FControl"  required>
+            </div>
+            <div class="addLine"><label>電話：</label><input class="FControl" type="text" required id="phone"/></div>
+            <div class="addLine"><label>傳真：</label><input class="FControl" type="text" required id="fax"/></div>
+            <div class="addLine"><label>電子郵件：</label><input class="FControl" type="email" required id="email"/></div>
+            <div class="addLine"><label>備註：</label><input class="FControl" type="text" required id="memo"/></div>
+            <div class="addLine"><label>銀行代碼：</label><input class="FControl" type="number" required id="num"/></div>
+            <div class="addLine"><label>銀行帳號：</label><input class="FControl" type="number" required id="bank"/></div>
+          </div>
+          <div class="modal-footer">
+            <button class="addOCpersonBtn" id="setdata">確定</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 新增承辦人員END -->
+  <div class="container">
+    <div class="row he">
+      <div class="col OCtitle">
+        <div class="OCperson">
+          <span class="userTitleSpana h3">
+            長照繼續教育認可單位列表
+          </span>
+          <button class="adddPerson" data-bs-toggle="modal" data-bs-target="#NEWstaticBackdrop" type="button">新增</button>
+              
+        </div>
+        <div class="search">
+          <nav class="navbar">
+            <!-- <div class="container-fluid "> -->
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <!-- </div> -->
+          </nav>
+        </div>
+      </div>
+
+    </div>
+    <div class="outsideC">
+      <div class="butf">
+        <nav>
+          <div class="nav nav-tabs " id="nav-tab" role="tablist">
+            <button class="nav-link active col bott" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+              type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+              <h5>北部</h5>
+            </button>
+            <button class="nav-link col" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+              type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+              <h5>中部</h5>
+            </button>
+            <button class="nav-link col" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+              type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+              <h5>南部</h5>
+            </button>
+
+            <button class="nav-link col" id="nav-disabled-tab" data-bs-toggle="tab" data-bs-target="#nav-disabled"
+              type="button" role="tab" aria-controls="nav-disabled" aria-selected="false">
+              <h5>東部</h5>
+            </button>
+            <button class="nav-link col" id="nav-island-tab" data-bs-toggle="tab" data-bs-target="#nav-island"
+              type="button" role="tab" aria-controls="nav-island" aria-selected="false">
+              <h5>離島</h5>
+            </button>
+          </div>
+        </nav>
+      </div>
+      <div class="aple">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"
+            tabindex="0">
+
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">長照繼續教育認可單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">單位縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass">
+                 
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">長照繼續教育認可單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">單位縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass2">
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">長照繼續教育認可單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">單位縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass3">
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">長照繼續教育認可單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">單位縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass4">
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade " id="nav-island" role="tabpanel" aria-labelledby="nav-island-tab" tabindex="0">
+            <div class="table-responsive">
+              <table class="table" style="border: solid black 1px;">
+                <thead>
+                  <tr style="background-color: #FFBC1D;">
+                    <th scope="col">#</th>
+                    <th scope="col">長照繼續教育認可單位名稱</th>
+                    <th scope="col">連絡電話</th>
+                    <th scope="col">電子郵件</th>
+                    <th scope="col">單位縣市</th>
+                    <th scope="col">單位地址</th>
+                    <th scope="col">備註</th>
+                  </tr>
+                </thead>
+                <tbody id="allclass5">
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+
+  <script>
+    $(function () {
+      $("#header").load("back.html")
+      $("#footer").load("footer.html")
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+
+  <!--Firebase-->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+authDomain: "contactform-d7d05.firebaseapp.com",
+databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+projectId: "contactform-d7d05",
+storageBucket: "contactform-d7d05.appspot.com",
+messagingSenderId: "371807550240",
+appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+import{
+getFirestore, doc, setDoc, collection, addDoc,getDoc,where,query,getDocs
+}
+from "firebase/firestore";
+
+const db = getFirestore();
+
+// Reference
+
+
+let Name = document.getElementById("name");
+let Person = document.getElementById("person");
+let Phone = document.getElementById("phone");
+let Fax = document.getElementById("fax");
+let Address = document.getElementById("address");
+let Email = document.getElementById("email");
+let Num = document.getElementById("num");
+let Bank = document.getElementById("bank");
+let country = document.getElementById("country");
+let Memo = document.getElementById("memo");
+
+//button
+let addbtn = document.getElementById("setdata");
+
+
+
+async function get(){
+      var ref = doc(db,"認證單位資料資料", Name.value);
+      const docSnap = await getDoc(ref);
+
+      if(docSnap.exists()){
+          alert("帳號已被註冊過");
+      }
+      else{
+        AddCerti();
+       
+      }
+    }
+
+
+//Data of person
+async function AddCerti(){
+var ref = doc(db, "認證單位資料資料",Name.value);
+const docRef = await setDoc(
+  ref, {
+      認證單位資料名稱: Name.value,
+      負責人: Person.value,
+      縣市: country.value,
+      地址: Address.value,
+      Email: Email.value,
+      電話: Phone.value,
+      傳真: Fax.value,
+      銀行代碼: Num.value,
+      銀行帳號: Bank.value,
+      備註: Memo.value,
+      狀態: "啟用"
+   }
+)
+.then(()=>{
+  alert("新增成功!!");
+  window.location.reload();
+})
+.catch((error)=>{
+alert("提交失敗"+ error);
+});
+}
+
+
+addbtn.addEventListener("click",(e) =>{
+  e.preventDefault();
+  get();
+});
+
+ //北部
+ async function storedata()
+  {
+
+      const ref = collection(db, "認證單位資料");
+      const q = query(ref,where('縣市','in',['台北市', '桃園市', '新北士', '基隆市', '新竹市', '新竹縣', '宜蘭縣']),where('狀態','==','啟用'));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-addCertiClassData.html" name="send">${element.data().認證單位名稱}</a></td>
+                    <td>${element.data().電話}</td>
+                    <td>${element.data().Email}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-addCertiClassData.html");
+
+        } 
+      }       
+  };
+
+  //中部
+  async function storedata2()
+  {
+
+      const ref = collection(db, "認證單位資料");
+      const q = query(ref,where('縣市','in',['台中市', '彰化縣', '南投縣', '雲林縣', '苗栗縣']),where('狀態','==','啟用'));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass2').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-addCertiClassData.html" name="send">${element.data().認證單位名稱}</a></td>
+                    <td>${element.data().電話}</td>
+                    <td>${element.data().Email}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-addCertiClassData.html");
+
+        } 
+      }    
+  };
+
+  //南部
+  async function storedata3()
+  {
+
+      const ref = collection(db, "認證單位資料");
+      const q = query(ref,where('縣市','in',['嘉義縣', '屏東縣', '台南市', '高雄市', '澎湖縣', '嘉義市']));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass3').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-addCertiClassData.html" name="send">${element.data().認證單位名稱}</a></td>
+                    <td>${element.data().電話}</td>
+                    <td>${element.data().Email}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-addCertiClassData.html");
+
+        } 
+      }    
+  };
+
+  //東部
+  async function storedata4()
+  {
+
+      const ref = collection(db, "認證單位資料");
+      const q = query(ref,where('縣市','in',['花蓮縣', '台東縣']),where('狀態','==','啟用'));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass4').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-addCertiClassData.html" name="send">${element.data().認證單位名稱}</a></td>
+                    <td>${element.data().電話}</td>
+                    <td>${element.data().Email}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-addCertiClassData.html");
+
+        } 
+      }    
+  };
+
+
+    //離島
+    async function storedata5()
+  {
+
+      const ref = collection(db, "認證單位資料");
+      const q = query(ref,where('縣市','in',['金門縣', '連江縣']),where('狀態','==','啟用'));
+      const querySnapshot = await getDocs(q);
+      var stdNo=0;
+  querySnapshot.forEach(function(element)
+  {
+    
+      document.querySelector('#allclass5').innerHTML+=`
+                  <tr>
+                    <th scope="row">${++stdNo}</th>
+                    <td><a href="admin-addCertiClassData.html" name="send">${element.data().認證單位名稱}</a></td>
+                    <td>${element.data().電話}</td>
+                    <td>${element.data().Email}</td>
+                    <td>${element.data().縣市}</td>
+                    <td>${element.data().地址}</td>
+                    <td>${element.data().備註}</td>
+                  </tr>`      
+  });
+  //重點！！！！
+  const aaa = document.getElementsByName('send');
+        for (var i = 0 ; i < aaa.length; i++) {
+        aaa[i].addEventListener('click' , test , false ) ;
+        function test(zEvent){
+        console.log(this.innerText);
+        //localStorage
+        const openname = this.innerText;//div
+        console.log(openname);
+
+        localStorage.setItem('openname',openname);
+        //localStorage.setItem('key',data)
+        window.location.assign("admin-addCertiClassData.html");
+
+        } 
+      }    
+  };
+  
+  window.onload = function(){ storedata(); storedata2(); storedata3(); storedata4(); storedata5();}
+
+</script>
+</body>
+
+</html>

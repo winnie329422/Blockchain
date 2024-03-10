@@ -1,0 +1,13 @@
+.adminAddBtn {
+  border: solid 1px #FFBC1D;
+  background-color: #ffd269;
+  width: 80px;
+  border-radius: 3px;
+}
+
+.adminBtn {
+  border: solid 1px #414141;
+  background-color: #cecece;
+  width: 80px;
+  border-radius: 3px;
+}

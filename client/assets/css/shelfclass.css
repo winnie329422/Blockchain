@@ -1,0 +1,85 @@
+.input-group-text {
+    background-color: white;
+    border: solid 0px;
+    font-size: 20px;
+}
+
+.classpic {
+    margin-top: -40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* margin-top: 10px; */
+}
+
+.insideclasspic {
+    height: 290px;
+    width: 290px;
+}
+
+.a-upload {
+    color: black;
+}
+/* 
+.usetomargin {
+    margin-top: 5px;
+    margin-bottom: 5px;
+} */
+
+.babala {
+    margin-top: 50px;
+}
+
+.caca {
+    font-size: 35px;
+}
+
+.card {
+    padding-left: 50px;
+}
+
+.bank {
+    margin-right: 12px;
+}
+
+.textnumber {
+    margin-top: 5px;
+    margin-left: 2px;
+    width: 30px;
+    height: 35px;
+}
+
+.bonusnumber {
+    font-size: 25px;
+}
+
+.myselfdo {
+    display: flex;
+    justify-content: left;
+}
+
+.shelfclassbtn1 {
+    width: 80px;
+    background-color: orange;
+}
+
+.shelfclassbtn2 {
+    width: 100px;
+    background-color: rgb(255, 108, 108);
+}
+
+.shelfclassbtn3 {
+    width: 80px;
+    background-color: greenyellow;
+}
+
+.shelfclassbtns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.aaaaa {
+    margin-top: 10px;
+}

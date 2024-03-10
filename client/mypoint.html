@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>積分管家</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/all.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/mypoint.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/userIndex.css">
+
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="container">
+    <!--test-->
+    <div>
+     <span id="Account"></span>
+     <span id="block"></span>
+    </div>
+    <script>
+      const userAccount = sessionStorage.getItem('Account');
+      const userblock = sessionStorage.getItem('block');
+      console.log(userblock);
+    </script>
+    <!--已獲得積分-->
+    <div class="row">
+      <div class="h4 FirstuserTitle">
+        <span class="userTitleSpan">已獲得積分</span>
+      </div>
+        <!--firebase data-->
+        <button class="accordion">壹、專業課程，已修習<span id="point1"></span>積分，正在修習<label id="allclass2"></label>積分</button>
+        <div class="panel">
+          <div class="everyrow">
+            <div class="row firstrow">
+              <div class="col-4">課程名稱</div>
+              <div class="col-2">獲得積分數</div>
+              <div class="col-3">上課日期</div>
+              <div class="col-3">獲得積分日期</div>
+            </div>
+            <div id="show1"></div>
+          </div>
+        </div>
+  
+        <button class="accordion">貳、專業品質，已修習<span id="point2"></span>積分，正在修習<label id="allclass3"></label>積分</button>
+        <div class="panel">
+          <div class="everyrow">
+            <div class="row firstrow">
+              <div class="col-4">課程名稱</div>
+              <div class="col-2">獲得積分數</div>
+              <div class="col-3">上課日期</div>
+              <div class="col-3">獲得積分日期</div>
+            </div>
+            <div id="show2"></div>
+          </div>
+        </div>
+  
+        <button class="accordion">參、專業倫理，已修習<span id="point3"></span>積分，正在修習<label id="allclass4"></label>積分</button>
+        <div class="panel">
+          <div class="everyrow">
+            <div class="row firstrow">
+              <div class="col-4">課程名稱</div>
+              <div class="col-2">獲得積分數</div>
+              <div class="col-3">上課日期</div>
+              <div class="col-3">獲得積分日期</div>
+            </div>
+            <div id="show3"></div>
+          </div>
+        </div>
+  
+        <button class="accordion">肆、專業法規，已修習<span id="point4"></span>積分，正在修習<label id="allclass5"></label>積分</button>
+        <div class="panel">
+          <div class="everyrow">
+            <div class="row firstrow">
+              <div class="col-4">課程名稱</div>
+              <div class="col-2">獲得積分數</div>
+              <div class="col-3">上課日期</div>
+              <div class="col-3">獲得積分日期</div>
+            </div>
+            <div id="show4"></div>
+          </div>
+        </div>
+  
+      </div>
+    <!-- 欠缺課程推薦 -->
+    <div class="row">
+      <div class="container">
+        <div class="h4 userTitle">
+          <span class="userTitleSpan">欠缺課程推薦</span>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img src="https://picsum.photos/300/200/?random=10">
+              <div class="card-body">
+                <p class="card-text">足部照護服務訓練</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img src="https://picsum.photos/300/200/?random=11">
+              <div class="card-body">
+                <p class="card-text">足部照護服務訓練</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img src="https://picsum.photos/300/200/?random=12">
+              <div class="card-body">
+                <p class="card-text">足部照護服務訓練</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card" style="width: 18rem;">
+              <img src="https://picsum.photos/300/200/?random=12">
+              <div class="card-body">
+                <p class="card-text">足部照護服務訓練</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+  <script>
+    $(function () {
+      $("#header").load("h4.html")
+      $("#footer").load("footer.html")
+    });
+  </script>
+  <script type="text/javascript" src="assets/js/mypoint.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+
+   <!--Firebase-->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+authDomain: "contactform-d7d05.firebaseapp.com",
+databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+projectId: "contactform-d7d05",
+storageBucket: "contactform-d7d05.appspot.com",
+messagingSenderId: "371807550240",
+appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+import{
+getFirestore, doc, setDoc, collection, addDoc,getDoc,where,query,getDocs
+}
+from "firebase/firestore";
+
+const db = getFirestore();
+
+console.log(userAccount);
+
+
+
+async function class2()
+  {
+    const ref = collection(db, "報名資料");
+    const q = query(ref,where('帳號','==',userAccount),where('是否繳費','==','已繳費'),where('課程類別','==','專業課程'),where('是否通過','==',''));
+    const querySnapshot = await getDocs(q);
+    var stdNo=0;
+
+    var sum=0;
+    querySnapshot.forEach(function(element)
+    {   
+        const ele = Number(element.data().積分數)
+        
+        sum=ele+ele;
+        // Number(sum=sum+ele);
+        console.log(ele);
+        // sum+=element.data().積分數;
+    });
+    document.getElementById('allclass2').innerText=sum
+  }
+
+  async function class3()
+  {
+    const ref = collection(db, "報名資料");
+    const q = query(ref,where('帳號','==',userAccount),where('是否繳費','==','已繳費'),where('課程類別','==','專業品質'),where('是否通過','==',''));
+    const querySnapshot = await getDocs(q);
+    var stdNo=0;
+
+    var sum=0;
+    querySnapshot.forEach(function(element)
+    {   
+        const ele = Number(element.data().積分數)
+        
+        sum=ele+ele;
+        // Number(sum=sum+ele);
+        console.log(ele);
+        // sum+=element.data().積分數;
+    });
+    document.getElementById('allclass3').innerText=sum
+  }
+
+  async function class4()
+  {
+    const ref = collection(db, "報名資料");
+    const q = query(ref,where('帳號','==',userAccount),where('是否繳費','==','已繳費'),where('課程類別','==','專業倫理'),where('是否通過','==',''));
+    const querySnapshot = await getDocs(q);
+    var stdNo=0;
+
+    var sum=0;
+    querySnapshot.forEach(function(element)
+    {   
+        const ele = Number(element.data().積分數)
+        
+        sum=ele+ele;
+        // Number(sum=sum+ele);
+        console.log(ele);
+        // sum+=element.data().積分數;
+    });
+    document.getElementById('allclass4').innerText=sum
+  }
+
+  async function class5()
+  {
+    const ref = collection(db, "報名資料");
+    const q = query(ref,where('帳號','==',userAccount),where('是否繳費','==','已繳費'),where('課程類別','==','專業法規'),where('是否通過','==',''));
+    const querySnapshot = await getDocs(q);
+    var stdNo=0;
+
+    var sum=0;
+    querySnapshot.forEach(function(element)
+    {   
+        const ele = Number(element.data().積分數)
+        
+        sum=ele+ele;
+        // Number(sum=sum+ele);
+        console.log(ele);
+        // sum+=element.data().積分數;
+    });
+    document.getElementById('allclass5').innerText=sum
+  }
+
+  window.onload = function(){class2();class3();class4();class5();}
+
+</script>
+  <!-- 區塊鏈的 開始-->
+  <script type="module" src="mypssss.js"></script>
+  <!-- 區塊鏈的 結束-->
+</body>
+
+</html>

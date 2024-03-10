@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="../client/assets/css/h3.css">
+</head>
+
+<body>
+    <div class="header" style="margin-bottom: 150px;">
+        <header>
+            <ul class="list">
+                <li><a href="home-class.html" title="積分管家"><img src="../client/assets/image/logo.png" class="logo" /></a></li>
+                &emsp;&emsp;
+
+                <li>
+
+                    <button class="dropbtn"><a href="../client/shelfclass.html">上傳開課</a></button>
+
+
+                </li>
+                &emsp;&emsp;&emsp;
+
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">學員名單</button>
+                        <div class="dropdown-content" style="left:0;">
+                            <a href="../client/passclass-classliststudent.html">修課名單</a>
+                            <a href="../client/classlistlist.html">通過名單</a>
+                            <!-- <a href="#">取消名單</a> -->
+                        </div>
+                    </div>
+                </li>
+
+                <!-- &emsp;&emsp;&emsp; -->
+                <!-- <li><a href="">講師資訊&emsp;</a></li> -->
+                &emsp;&emsp;&emsp;
+                <li><a href="../client/pass-class-shelfclasslist.html">課程資訊&emsp;</a></li>
+                &emsp;&emsp;&emsp;
+                <li><a href="../client/account-class.html">帳號管理&emsp;</a></li>
+                &emsp;&emsp;&emsp;&emsp;
+                <li id="open"></li>
+                <li class="short">您好</li>
+                <li><button type="submit" id="openlogout"  class=" btn-info666">登出</button></li>&emsp;
+            </ul>
+        </header>
+    </div>
+
+    <script>
+        const openAcc = sessionStorage.getItem('Acc');
+        const openName = sessionStorage.getItem('open');
+        const openlogout = document.getElementById('openlogout');
+
+        document.getElementById('Acc').textContent = openAcc;
+        document.getElementById('open').textContent = openName;
+
+
+
+        
+
+        openlogout.addEventListener('click', function(e){
+            window.location.assign("index.html");
+            alert("登出！");
+            sessionStorage.clear();
+            sessionStorage.removeItem();
+        })
+      </script>
+
+</body>
+
+</html>

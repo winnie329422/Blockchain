@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><link rel="stylesheet" href="/admin-announcement.eff08372.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="/back.577bf687.css">
+</head>
+
+<body>
+    <div class="header" style="margin-bottom: 150px">
+        <header>
+            <ul class="list">
+                <li><a href="/allaccout-1.html" target="_blank" title="積分管家"><img src="/logo.7cedcaf0.png" class="logo"></a>
+                </li>&emsp;&emsp;
+                <li><a href="/studentlist.html">長照人員管理</a></li>
+                &emsp;&emsp;&emsp;
+                <li><a href="/controlpeople.html">後台人員管理</a></li>
+                &emsp;&emsp;&emsp;
+                <li><a href="/openclass.html">開課單位管理&emsp;</a></li>
+                &emsp;&emsp;&emsp;
+                <li><a href="/CertiClass.html">認證單位管理&emsp;</a></li>
+                &emsp;&emsp;&emsp;
+                <li><a href="/admin-announcement.html">編輯公告&emsp;</a></li>
+                &emsp;&emsp;&emsp;&emsp;
+                <!-- <a style="color: black; text-decoration:none;" href="../client/useredit.html"  id="Name" name="send"></a> -->
+                <li><a href="/admin-user.html" id="BackName"></a></li>
+                <li>您好</li>
+                <!-- 這裡這裡!!!!!我改到這裡(終點) -->
+                <li><button href="" id="logout" class="btn-info666">登出</button></li>
+            </ul>
+        </header>
+    </div>
+
+
+    <script>const backacc = sessionStorage.getItem("Accountback");
+const backname = sessionStorage.getItem("BackName");
+const logout = document.getElementById("logout");
+document.getElementById("Accountback").textContent = backacc;
+document.getElementById("BackName").textContent = backname;
+logout.addEventListener("click", function(e) {
+    window.location.assign("login-back.html");
+    alert("登出！");
+    sessionStorage.clear();
+    sessionStorage.removeItem();
+});
+
+</script>
+<script src="/back.6784dc53.js"></script></body>
+
+</html>

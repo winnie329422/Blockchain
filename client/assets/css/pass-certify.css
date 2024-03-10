@@ -1,0 +1,223 @@
+*{
+    font-family: 微軟正黑體;
+    letter-spacing: 1px;
+}
+
+#pass{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.search{
+    font-size: 99px;
+    margin: 20px 20px 20px 18px;
+    position: relative;
+}
+
+.butinside{
+    position: absolute;
+    top: 90px;
+    left: 110px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+}
+
+.butinside:hover{
+    cursor: pointer;
+}
+
+.butoutside{
+    border: none;
+    outline: none;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+.butoutside:hover{
+    cursor: pointer;
+}
+
+.passcon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+table { 
+    border:1px solid #000; 
+    font-family: 微軟正黑體; 
+    font-size:20px; 
+    border:1px solid #000;
+    text-align:center;
+    border-collapse:collapse;
+    width: 1500px;
+}
+
+.first{
+    background-color: #e4ab6f;
+}
+
+#yes{
+    font-size: 20px;
+    margin: 5px;
+    background-color: #f3c889;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.no{
+    font-size: 20px;
+    margin: 5px;
+    background-color: #f3c889;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.choose{
+    margin: 20px;
+    font-size: 20px;
+}
+
+.upload{
+    font-size: 20px;
+    margin: 10px;
+    background-color: #f3c889;
+    border: none;
+    border-radius: 5px;
+}
+
+.upload:hover{
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px #f3c889 solid;
+    color: #f3c889;
+}
+
+#yes:hover{
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px #f3c889 solid;
+    color: #f3c889;
+}
+.no:hover{
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px #f3c889 solid;
+    color: #f3c889;
+}
+
+#end{
+    border: none;
+    color: black;
+    background-color: #f5f5f5;
+    text-align: center;
+    font-size: 20px;
+}
+
+/*上傳彈跳視窗*/
+.form2 {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 10px 0 10px 10%;
+}
+
+.data {
+    margin: 0 20px 10% 0px;
+    border-radius: 5%;
+    background-color: #edd7b4;
+    justify-content: center;
+    text-align: center;
+    margin-left: 40%;
+}
+
+
+.box {
+    padding: 10px;
+}
+
+.register-button {
+    border-radius: 5px;
+    background-color: #EECFBB;
+    padding: 5px 40px;
+    margin: 0 50px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.register-button:hover {
+    color: black;
+    background-color: #fff;
+    border: 2px black solid;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 900;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    text-align: center;
+    justify-content: center;
+    margin: 20px;
+    border: none;
+    width: 70%;
+}
+
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+/*表單設計*/
+.con{
+   float: right;
+    width: 250px;
+}
+
+.con1{
+    width:200px ;
+    float: right;
+    margin-left: 20px;
+}

@@ -1,0 +1,175 @@
+.MM {
+  width: 180px;
+  background-color: #0000;
+  border-width: 0;
+  border-bottom-style: solid;
+}
+
+.submitButton {
+  display: none;
+}
+
+.outsideB {
+  width: 100%;
+  background-color: #ecefe8;
+  border-radius: 5px;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 30px 70px;
+  display: flex;
+}
+
+.back {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.title {
+  display: flex;
+}
+
+.account {
+  justify-content: left;
+  align-items: left;
+  width: 80%;
+  height: auto;
+  margin-top: 2%;
+  margin-left: 120px;
+  padding: 10px 60px 0 10px;
+  display: flex;
+}
+
+.account h1 {
+  width: 100%;
+  height: 50px;
+  letter-spacing: 5px;
+  font-size: 28px;
+}
+
+.table {
+  background-color: #e5e5e5;
+  border: gray;
+}
+
+.th {
+  border: solid gray;
+}
+
+.btn-info {
+  background-color: #b2fffa;
+}
+
+.d-flex {
+  justify-content: right;
+  align-items: right;
+  display: flex;
+}
+
+.aa {
+  background-color: #fff;
+  margin-top: 50px;
+}
+
+.col h3 {
+  border-width: 3px 3px 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #76c784;
+  margin-left: 40px;
+  padding-bottom: 5px;
+}
+
+.me-2 {
+  margin: 0;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+  flex-basis: 100%;
+  align-items: center;
+}
+
+.navbar-custom {
+  background-color: #fff;
+}
+
+.ha {
+  align-items: left;
+  flex-direction: column;
+  display: flex;
+}
+
+.table {
+  border: 1px solid gray;
+}
+
+#memaccount {
+  margin-right: -20px;
+}
+
+input:disabled {
+  color: #000;
+}
+
+.addLine {
+  width: 100%;
+}
+
+.addLine input {
+  padding: .375rem 2.25rem .375rem .75rem;
+}
+
+.MFControl {
+  width: 60%;
+  border-width: 1px;
+  border-style: solid #ced4da;
+  -moz-padding-start: calc(.75rem - 3px);
+  color: #212529;
+  appearance: none;
+  background-color: #0000;
+  background-position: right .75rem center;
+  background-repeat: no-repeat;
+  background-size: 16px 12px;
+  border-radius: .375rem;
+  margin-bottom: 10px;
+  padding: .375rem 2.25rem .375rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.adddPerson {
+  width: 60px;
+  background-color: #80c6ff;
+  border: 1px solid #4c7cb6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.OCperson {
+  display: flex;
+}
+
+.addOCpersonBtn {
+  width: 100px;
+  color: #fff;
+  background-color: #e75e5e;
+  border: 1px solid #4c7cb6;
+  border-radius: 5px;
+  padding: 5px 0;
+}
+
+.addOCpersonBtn:hover {
+  background-color: #ce4949;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=studentlist.63727c2a.css.map */

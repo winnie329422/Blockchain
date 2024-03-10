@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/register-class.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/indexh.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <title>開課單位註冊</title>
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <!--header-->
+    <div id="header"></div>
+    <form id="contactForm">
+    <div class="logall">
+       
+        <div class="title4">
+            單位資料
+        </div>
+        <div class="login">
+            <div class="account">
+                開課單位名稱
+                <input name="acc"  class="box" id="name">
+            </div>
+            <div class="account">
+                負責人
+                <input name="pass" required class="box" id="person">
+            </div>
+            <div class="account">
+                單位電話
+                <input name="pass" required class="box" id="phone">
+            </div>
+            <div class="account">
+                單位傳真
+                <input name="pass" required class="box" id="tax">
+            </div>
+            <div class="account">
+                <div class="address">
+                    <div>單位地址</div>
+                    <div class="addresscontent">
+                        <select class="form-select-sm" aria-label="Default select example" id="country">
+                            <option selected>請選擇</option>
+                            <optgroup label="北部">
+                                <option value="台北市">台北市</option>
+                                <option value="新北市">新北市</option>
+                                <option value="桃園市">桃園市</option>
+                                <option value="基隆市">基隆市</option>
+                                <option value="新竹市">新竹市</option>
+                                <option value="新竹縣">新竹縣</option>
+                                <option value="宜蘭縣">宜蘭縣</option>
+                            </optgroup>
+                            <optgroup label="中部">
+                                <option value="台中市">台中市</option>
+                                <option value="苗栗縣">苗栗縣</option>
+                                <option value="台中市">台中市</option>
+                                <option value="彰化縣">彰化縣</option>
+                                <option value="南投縣">南投縣</option>
+                                <option value="雲林縣">雲林縣</option>
+                            </optgroup>
+                            <optgroup label="南部">
+                                <option value="台南市">台南市</option>
+                                <option value="高雄市">高雄市</option>
+                                <option value="嘉義縣">嘉義縣</option>
+                                <option value="嘉義市">嘉義縣</option>
+                                <option value="屏東縣">屏東縣</option>
+                                <option value="澎湖縣">澎湖縣</option>
+                            </optgroup>
+                            <optgroup label="東部">
+                                <option value="花蓮縣">花蓮縣</option>
+                                <option value="台東縣">台東縣</option>
+                            </optgroup>
+                            <optgroup label="離島">
+                                <option value="金門縣">金門縣</option>
+                                <option value="連江縣">連江縣</option>
+                            </optgroup>   
+                        </select>
+                        <input name="pass" required class="address" id="address"></div>
+                </div>
+            </div>
+            <div class="account">
+                單位電子郵件
+                <input name="pass" type="email" required class="box" id="email">
+            </div>
+            <div class="account">
+                銀行代碼
+                <input name="pass" required class="box" id="num" type="number">
+            </div>
+            <div class="account">
+                銀行帳號
+                <input name="pass" required class="box" id="bank" type="number">
+            </div>
+
+        </div>
+        <div class="title4">
+            個人資料
+        </div>
+        <div class="login">
+            <div class="account">
+                承辦人員姓名
+                <input name="acc" required class="box" id="namebox">
+            </div>
+            <div class="account">
+                帳號
+                <input name="acc" required class="box" id="acc">
+            </div>
+            <div class="account">
+                密碼
+                <input name="pass" type="password" required class="box" id="pass">
+            </div>
+            <div class="account">
+                申請人email
+                <input name="acc" required class="box"type="email" id="mailbox">
+            </div>
+            <div class="account">
+                申請人電話
+                <input name="acc" required class="box" id="tele">
+            </div>
+            <div class="account">
+                職稱
+                <input name="acc" required class="box" id="job">
+            </div>
+
+            
+        </div>
+        <div class="but">
+            <button id="Insbtn" class="butlog">註冊</button>
+        </div>
+    </div>
+</form>
+
+<!--Firebase-->
+<script type="module">
+    // Import the functions you need from the SDKs you need
+  import { initializeApp } from "firebase/app";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+  apiKey: "AIzaSyBxyo9c07rd1CzGXbEnu9jmutXAbIBiHis",
+  authDomain: "contactform-d7d05.firebaseapp.com",
+  databaseURL: "https://contactform-d7d05-default-rtdb.firebaseio.com",
+  projectId: "contactform-d7d05",
+  storageBucket: "contactform-d7d05.appspot.com",
+  messagingSenderId: "371807550240",
+  appId: "1:371807550240:web:5a7fb2cd0674cd8f4bb545"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  
+  import{
+  getFirestore, doc, setDoc, collection, addDoc,getDoc
+  }
+  from "firebase/firestore";
+  
+  const db = getFirestore();
+  
+  // Reference
+ 
+
+  let Name = document.getElementById("name");
+  let Person = document.getElementById("person");
+  let Phone = document.getElementById("phone");
+  let Tax = document.getElementById("tax");
+  let Address = document.getElementById("address");
+  let Email = document.getElementById("email");
+  let Num = document.getElementById("num");
+  let Bank = document.getElementById("bank");
+  let country = document.getElementById("country");
+
+  let Namebox = document.getElementById("namebox");
+  let Acc = document.getElementById("acc");
+  let Pass = document.getElementById("pass");
+  let Tele = document.getElementById("tele");
+  let Mail = document.getElementById("mailbox");
+  let Job = document.getElementById("job");
+  
+  //button
+ 
+  let Insbtn = document.getElementById("Insbtn");
+  
+
+  async function get(){
+        var ref = doc(db,"申請中-開課單位承辦人員資料", Acc.value);
+        const docSnap = await getDoc(ref);
+
+        if(docSnap.exists()){
+            alert("帳號已被註冊過");
+        }
+        else{
+            AddClass();
+         
+        }
+      }
+
+  //Data of class
+  //insert function
+  async function AddClass(){
+  var ref = doc(db, "申請中-開課單位資料",Name.value);
+  const docRef = await setDoc(
+    ref, {
+        開課單位名稱: Name.value,
+        負責人: Person.value,
+        聯絡電話: Phone.value,
+        傳真: Tax.value,
+        縣市:country.value,
+        地址: Address.value,
+        電子郵件: Email.value,
+        銀行代碼: Num.value,
+        銀行帳號: Bank.value,
+        備註:"無",
+        狀態:"啟用"
+     }
+  )
+    AddMember();
+  }
+  
+  //Data of person
+  async function AddMember(){
+  var ref = doc(db, "申請中-開課單位承辦人員資料",Acc.value);
+  const docRef = await setDoc(
+    ref, {
+        開課單位名稱: Name.value,
+        承辦人員名字: Namebox.value,
+        帳號: Acc.value,
+        密碼: Pass.value,
+        承辦人員email:Mail.value,
+        申請人電話: Tele.value,
+        職稱: Job.value
+     }
+  )
+  .then(()=>{
+    alert("已提交註冊申請!!");
+    window.location.reload();
+  })
+  .catch((error)=>{
+  alert("提交失敗r"+ error);
+  });
+  }
+
+
+  Insbtn.addEventListener("click",(e) =>{
+    e.preventDefault();
+    get();
+  });
+  </script>
+
+
+    <!--footer-->
+
+    <div id="footer">
+
+        <script>
+            $(function () {
+              $("#header").load("indexh.html")
+              $("#footer").load("footer.html")
+            });
+          </script>
+
+    
+</body>
+
+</html>

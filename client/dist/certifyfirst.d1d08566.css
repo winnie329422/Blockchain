@@ -1,0 +1,112 @@
+.back, .angry, .outsideB {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.account {
+  justify-content: left;
+  align-items: left;
+  width: 80%;
+  min-width: 1300px;
+  max-width: 1500px;
+  height: auto;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-left: 120px;
+  padding: 10px 50px 0 40px;
+  display: flex;
+}
+
+.account h1 {
+  width: 100%;
+  height: 50px;
+  text-align: left;
+  letter-spacing: 5px;
+  font-size: 28px;
+}
+
+.outsideB {
+  width: 100%;
+  background-color: #ecefe8;
+  border-radius: 5px;
+  padding: 80px 0;
+}
+
+.btn-group-vertical button {
+  width: 300px;
+  background-color: #b2ffc3;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.back {
+  width: 45%;
+  background-color: #c4c4c4;
+  border-radius: 10px;
+  padding: 50px;
+}
+
+.col h3 {
+  border-width: 3px;
+  border-color: #6c817c;
+  border-bottom-style: solid;
+  padding-top: 30px;
+  padding-bottom: 3px;
+  padding-left: 30px;
+}
+
+.ha {
+  align-items: left;
+  margin-top: 50px;
+  display: flex;
+}
+
+.userTitleSpan {
+  width: 380px;
+  align-items: center;
+  margin-left: 50px;
+  padding-top: 30px;
+  font-weight: bold;
+  display: flex;
+}
+
+.ohwow {
+  flex-direction: column;
+  display: flex;
+}
+
+.cute {
+  width: 150px;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.btn-outline-secondary {
+  color: #000;
+  background-color: #9d7533;
+}
+
+.btn-outline-secondary:hover {
+  opacity: .9;
+  background-color: #9d7533;
+}
+
+.contact {
+  position: fixed;
+  bottom: 5px;
+  right: 2px;
+}
+
+.frog {
+  width: 200px;
+}
+
+/*# sourceMappingURL=certifyfirst.d1d08566.css.map */

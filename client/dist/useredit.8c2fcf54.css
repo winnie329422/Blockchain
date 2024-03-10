@@ -1,0 +1,81 @@
+label {
+  margin-top: 25px;
+}
+
+.submitButton input {
+  width: 80px;
+  background-color: #88e9a5;
+  border: 1px solid #76c784;
+  border-radius: 3px;
+  padding: 5px 0;
+}
+
+.container {
+  width: 70%;
+}
+
+.edit {
+  justify-content: right;
+  margin-top: 35px;
+  display: flex;
+}
+
+.MM {
+  border-width: 0;
+  border-bottom-style: solid;
+}
+
+.submitButton {
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.form-control {
+  width: auto;
+  display: flex;
+}
+
+.FControl {
+  width: 60%;
+  border-width: 0;
+  border-style: solid #ced4da;
+  -moz-padding-start: calc(.75rem - 3px);
+  color: #212529;
+  appearance: none;
+  background-color: #0000;
+  background-position: right .75rem center;
+  background-repeat: no-repeat;
+  background-size: 16px 12px;
+  border-color: #76c784;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  margin-bottom: 10px;
+  padding: .375rem 2.25rem .375rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form-select {
+  width: 60%;
+  display: flex;
+}
+
+.container {
+  background: #f5f5f5;
+  border: 1px solid #000;
+  padding: 0 50px;
+}
+
+.asd {
+  width: 80px;
+  background-color: #ffd269;
+  border: 1px solid #ffbc1d;
+  border-radius: 3px;
+}
+
+/*# sourceMappingURL=useredit.8c2fcf54.css.map */

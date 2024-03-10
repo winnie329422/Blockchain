@@ -1,0 +1,37 @@
+.searchh {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.cacaca {
+  border-width: 3px;
+  border-bottom: solid 5px #76C784;
+  font-size: 38px;
+}
+
+.classlist {
+  /* border-width: 1px; */
+  border-bottom: solid 2px grey;
+  padding-bottom: 25px;
+  font-size: 18px;
+}
+
+.apupu {
+  color: black;
+  text-decoration: none;
+}
+
+#img{
+  width: 300px;
+  height: 250px;
+}
+
+.me-2{
+  height: 38px;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

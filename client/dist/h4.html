@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><link rel="stylesheet" href="/admin-announcement.eff08372.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="/back.577bf687.css">
+</head>
+
+<body>
+    <div class="header" style="margin-bottom: 150px">
+        <header>
+            <ul class="list">
+                <li><a href="/userIndex.html" title="積分管家"><img src="/logo.7cedcaf0.png" class="logo"></a></li>
+                &emsp;&emsp;
+                <li><a href="/studentclasslist.html">課程資訊</a></li>
+                <!-- &emsp;&emsp;&emsp; -->
+                <!-- <li><a href="">講師資訊</a></li> -->
+                &emsp;&emsp;&emsp;
+                <li><a href="/myclass.html">我的課程&emsp;</a></li>
+                &emsp;&emsp;&emsp;
+                <li><a href="/mypoint.html">我的積分&emsp;</a></li>
+                &emsp;&emsp;&emsp;
+                <li><a href="/courseing.html">修課清單&emsp;</a></li>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+                <li><a style="color: #000; text-decoration: none" href="/useredit.html" id="Name" name="send"></a></li>
+                <li class="short">您好</li>
+                <li><button type="submit" id="logout" href="login-person.html" class=" btn-info666">登出</button></li>
+            </ul>
+        </header>
+    </div>
+    <script>const userName = sessionStorage.getItem("Name");
+const Account = sessionStorage.getItem("Account");
+const logout = document.getElementById("logout");
+document.getElementById("Name").textContent = userName;
+const aaa = document.getElementsByName("send");
+for(var i = 0; i < aaa.length; i++){
+    aaa[i].addEventListener("click", test, false);
+    function test(zEvent) {
+        console.log(this.innerText);
+        //localStorage
+        const Name = this.innerText; //div
+        console.log(Name);
+        localStorage.setItem("memname", Name);
+        localStorage.setItem("memaccount", Account);
+        //localStorage.setItem('key',data)
+        window.location.assign("useredit.html");
+    }
+}
+logout.addEventListener("click", function(e) {
+    window.location.assign("login-person.html");
+    alert("登出！");
+    sessionStorage.clear();
+    sessionStorage.removeItem();
+});
+
+</script>
+<script src="/h4.b8cf70d4.js"></script></body>
+
+</html>

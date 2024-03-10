@@ -1,0 +1,29 @@
+.searchh {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.cacaca {
+  border-width: 3px 3px 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #76c784;
+  font-size: 38px;
+}
+
+.classlist {
+  border-bottom: 2px solid gray;
+  padding-bottom: 25px;
+  font-size: 18px;
+}
+
+.apupu {
+  color: #000;
+  text-decoration: none;
+}
+
+#img {
+  width: 300px;
+  height: 250px;
+}
+
+/*# sourceMappingURL=studentclasslist.c360f83e.css.map */

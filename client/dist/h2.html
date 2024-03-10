@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+  <link rel="stylesheet" type="text/css" href="/h2.d8ec72ae.css">
+</head>
+
+<body>
+  <div class="header" style="margin-bottom: 150px">
+    <header>
+      <div class="abula">
+        <ul class="list">
+          <div class="leftT">
+            <li class="ala"><a href="/pass-certify-list.html" title="積分管家"><img src="/logo.7cedcaf0.png" class="logo"></a>
+            </li>
+            <div class="two">
+              <li class="ffirst"><a href="/pass-certify-list.html">積分審查</a></li>
+
+              <li class="last"><a href="/certify-management.html">帳號管理&emsp;</a></li>
+            </div>
+          </div>
+
+            <li id="certiname"></li>
+            <li id="short">您好</li>
+              <li><button type="submit" class=" btn-info666" id="certilogout">登出</button></li>&emsp;
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <script>const certiacc = sessionStorage.getItem("certiacc");
+const certiname = sessionStorage.getItem("certiname");
+const certilogout = document.getElementById("certilogout");
+document.getElementById("certiacc").textContent = certiacc;
+document.getElementById("certiname").textContent = certiname;
+certilogout.addEventListener("click", function(e) {
+    window.location.assign("login-certify.html");
+    alert("登出！");
+    sessionStorage.clear();
+    sessionStorage.removeItem();
+});
+
+</script>
+
+<script src="/h2.7cb26668.js"></script></body>
+
+</html>
